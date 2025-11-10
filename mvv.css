@@ -1,0 +1,1640 @@
+/* ==================== VALIDADELIVERY - CSS MOBILE-FIRST OTIMIZADO ==================== */
+/* Versão Mobile-First: Responsividade Ultra-Melhorada */
+
+/* ==================== Fonte Instagram Sans ==================== */
+@import url('https://fonts.cdnfonts.com/css/instagram-sans');
+
+/* ==================== Variáveis CSS Completas ==================== */
+:root {
+    /* Cores Exatas da Imagem */
+    --rosa-pink: #ff5d8f;
+    --laranja-orange: #ffa319;
+    --verde-green: #6ea56f;
+    --amarelo-yellow: #ffb41e;
+    
+    /* Cores Complementares */
+    --primary: #f28c00;
+    --primary-light: #ff9f24;
+    --primary-dark: #d97b00;
+    --secondary: #6ea56f;
+    --secondary-dark: #5a8f5b;
+    --secondary-light: #8bc48c;
+    --accent: #f95d8b;
+    
+    /* Cores de Fundo */
+    --background: #e8f0fa;
+    --background-alt: #d4e6f7;
+    --white: #ffffff;
+    --black: #333333;
+    --text-dark: #333333;
+    --text-medium: #666666;
+    --text-light: #999999;
+
+    /* Sombras Otimizadas */
+    --shadow-card: 0 8px 20px rgba(0, 0, 0, 0.15);
+    --shadow-hero: 0 10px 30px rgba(0, 0, 0, 0.2);
+    --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.08);
+    --shadow-md: 0 4px 15px rgba(0, 0, 0, 0.12);
+    --shadow-lg: 0 8px 30px rgba(0, 0, 0, 0.16);
+    --shadow-xl: 0 15px 40px rgba(0, 0, 0, 0.2);
+
+    /* Border Radius */
+    --radius-hero: 60px;
+    --radius-card: 35px;
+    --radius-sidebar: 40px;
+    --radius-sm: 8px;
+    --radius-md: 12px;
+    --radius-lg: 20px;
+    --radius-xl: 35px;
+
+    /* Transições */
+    --transition-fast: 150ms cubic-bezier(0.4, 0, 0.2, 1);
+    --transition: 300ms cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-slow: 500ms cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-bounce: 600ms cubic-bezier(0.68, -0.55, 0.265, 1.55);
+
+    /* Z-index */
+    --z-base: 1;
+    --z-header: 100;
+    --z-modal: 1000;
+    --z-notification: 2000;
+
+    /* Espaçamentos Mobile-First */
+    --spacing-xs: 0.5rem;
+    --spacing-sm: 1rem;
+    --spacing-md: 1.5rem;
+    --spacing-lg: 2rem;
+    --spacing-xl: 3rem;
+    
+    /* Touch Targets (Mínimo 44x44px) */
+    --touch-target: 44px;
+    --touch-target-lg: 56px;
+}
+
+/* ==================== Reset Global Otimizado ==================== */
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    font-size: 16px;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+    -webkit-tap-highlight-color: transparent; /* Remove destaque azul no tap (mobile) */
+}
+
+body {
+    font-family: 'Instagram Sans', 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    background: linear-gradient(135deg, var(--background) 0%, var(--background-alt) 100%);
+    min-height: 100vh;
+    color: var(--text-dark);
+    line-height: 1.6;
+    overflow-x: hidden;
+    position: relative;
+}
+
+/* ==================== Padrão de Fundo Decorativo (Sutil em Mobile) ==================== */
+body::before,
+body::after {
+    content: '';
+    position: fixed;
+    background-image: repeating-linear-gradient(
+        45deg,
+        transparent,
+        transparent 10px,
+        rgba(255, 255, 255, 0.05) 10px,
+        rgba(255, 255, 255, 0.05) 20px
+    );
+    pointer-events: none;
+    z-index: 0;
+    opacity: 0.4;
+}
+
+body::before {
+    top: -30px;
+    left: -30px;
+    width: 200px;
+    height: 200px;
+    transform: rotate(-25deg);
+}
+
+body::after {
+    bottom: -30px;
+    right: -30px;
+    width: 250px;
+    height: 250px;
+    transform: rotate(15deg);
+}
+
+/* ==================== Loading State ==================== */
+body.loading {
+    cursor: wait;
+    pointer-events: none;
+}
+
+body.loading::after {
+    content: '';
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    width: 40px;
+    height: 40px;
+    margin: -20px 0 0 -20px;
+    border: 3px solid rgba(242, 140, 0, 0.2);
+    border-top-color: var(--primary);
+    border-radius: 50%;
+    animation: spin 0.8s linear infinite;
+    z-index: 9999;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+/* ==================== Header Mobile-First ==================== */
+header {
+    background: #ffa319; /* Laranja sólido igual à foto */
+    padding: 12px 20px;
+    border-bottom-left-radius: 0; /* Sem border radius como na foto */
+    border-bottom-right-radius: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+    position: sticky;
+    top: 0;
+    z-index: var(--z-header);
+    transition: var(--transition);
+}
+
+/* Remover overlay */
+header::before {
+    display: none;
+}
+
+/* Header Top Row (Logo + Perfil) */
+.header-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #333333; /* Cor escura como na foto */
+    cursor: pointer;
+    transition: var(--transition);
+    user-select: none;
+    position: relative;
+}
+
+.logo:active {
+    transform: scale(0.95);
+}
+
+.logo-icon {
+    width: 32px;
+    height: 32px;
+    transition: var(--transition);
+    filter: none; /* Sem sombra */
+}
+
+.logo-icon img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    display: block;
+}
+
+.logo-text {
+    font-weight: 700;
+    letter-spacing: 0;
+    color: #333333;
+    text-shadow: none; /* Sem sombra como na foto */
+    font-size: 1rem;
+}
+
+/* Navigation Mobile */
+header nav {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+    justify-content: center; /* Centralizado como na foto */
+    width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    padding: 4px 0;
+}
+
+header nav::-webkit-scrollbar {
+    display: none;
+}
+
+.nav-link {
+    text-decoration: none;
+    color: #333333; /* Cor escura como na foto */
+    font-size: 0.9rem;
+    font-weight: 600;
+    padding: 8px 16px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    position: relative;
+    transition: var(--transition);
+    overflow: hidden;
+    white-space: nowrap;
+    flex-shrink: 0;
+    min-height: var(--touch-target);
+    background: transparent;
+}
+
+/* Ícone dentro do link */
+.nav-link i {
+    font-size: 1rem;
+    display: inline-block;
+}
+
+/* Estado active - fundo branco semi-transparente */
+.nav-link.active {
+    background: rgba(255, 255, 255, 0.25);
+    border-radius: 8px;
+}
+
+.nav-link:active {
+    transform: scale(0.95);
+    background: rgba(255, 255, 255, 0.3);
+}
+
+.perfil {
+    background: #1dd1a1; /* Verde turquesa vibrante como na foto */
+    padding: 10px 24px;
+    border-radius: 30px; /* Bem arredondado/oval */
+    color: #333333; /* Texto escuro */
+    font-weight: 700;
+    cursor: pointer;
+    transition: var(--transition);
+    box-shadow: 0 2px 8px rgba(29, 209, 161, 0.3);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    user-select: none;
+    text-decoration: none;
+    position: relative;
+    overflow: hidden;
+    font-size: 0.9rem;
+    min-height: var(--touch-target);
+    white-space: nowrap;
+}
+
+/* Ícone no perfil */
+.perfil i {
+    font-size: 1rem;
+}
+
+.perfil img {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    object-fit: cover;
+    filter: brightness(0.9); /* Ícone um pouco mais escuro */
+}
+
+.perfil:active {
+    transform: scale(0.95);
+    background: #10ac84; /* Tom mais escuro no clique */
+}
+
+/* ==================== Main Content Mobile-First ==================== */
+main {
+    padding: 20px 16px;
+    max-width: 100%;
+    margin: 0 auto;
+    position: relative;
+    z-index: var(--z-base);
+}
+
+/* ==================== Hero Section Mobile-First ==================== */
+.hero {
+    text-align: center;
+}
+
+.hero-title {
+    background: linear-gradient(90deg, var(--rosa-pink) 0%, var(--laranja-orange) 100%);
+    color: var(--white);
+    padding: 20px 24px;
+    border-radius: 30px;
+    display: block;
+    font-size: 14px;
+    font-weight: 300;
+    box-shadow: var(--shadow-hero);
+    margin-bottom: 24px;
+    animation: fadeInDown 0.8s ease-out;
+    position: relative;
+    width: 100%;
+    text-align: center;
+    line-height: 1.4;
+}
+
+.hero-title::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, transparent 100%);
+    border-radius: inherit;
+    pointer-events: none;
+}
+
+.hero-title strong {
+    font-weight: 700;
+    display: block;
+    font-size: 32px;
+    margin-top: 6px;
+    letter-spacing: -1px;
+    line-height: 1;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* ==================== Cards Grid Mobile-First ==================== */
+.cards-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 16px;
+    max-width: 100%;
+    margin: 0 auto;
+}
+
+/* ==================== Card Base Mobile-First ==================== */
+.card {
+    border-radius: 25px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: var(--transition);
+    box-shadow: var(--shadow-card);
+    position: relative;
+    overflow: hidden;
+    will-change: transform;
+    min-height: 140px;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at 50% 0%, rgba(255, 255, 255, 0.2), transparent 70%);
+    opacity: 0;
+    transition: opacity var(--transition);
+    pointer-events: none;
+}
+
+.card:active {
+    transform: scale(0.97);
+}
+
+.card:active::before {
+    opacity: 1;
+}
+
+.card:focus-visible {
+    outline: 3px solid var(--rosa-pink);
+    outline-offset: 4px;
+}
+
+/* ==================== Card 1: Sacola (Rosa) ==================== */
+.card:nth-child(1) {
+    background: var(--rosa-pink);
+    padding: 24px;
+    min-height: 150px;
+}
+
+.card:nth-child(1) .card-icon {
+    width: 100px;
+    height: 100px;
+    background: var(--accent);
+    border-radius: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+    transition: var(--transition);
+}
+
+.card:nth-child(1) .card-icon img {
+    width: 90%;
+    height: 90%;
+    object-fit: contain;
+}
+
+/* ==================== Card 2: Termos & Condições (Verde) ==================== */
+.card:nth-child(2) {
+    background: var(--verde-green);
+    padding: 30px 24px;
+    min-height: 150px;
+}
+
+.card:nth-child(2) .card-content {
+    color: var(--black);
+    font-size: 28px;
+    font-weight: 700;
+    text-align: center;
+    line-height: 1.2;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+/* ==================== Card 3: Logo Pera (Laranja) ==================== */
+.card:nth-child(3) {
+    background: var(--laranja-orange);
+    padding: 24px;
+    min-height: 150px;
+}
+
+.card:nth-child(3) .card-icon {
+    width: 100px;
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.card:nth-child(3) .card-icon img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.2));
+    transition: var(--transition);
+}
+
+/* ==================== Sidebar Cards Mobile-First ==================== */
+.sidebar-cards {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+/* Card Missão (Rosa) */
+.sidebar-cards .card:nth-child(1) {
+    background: var(--rosa-pink);
+    padding: 20px 28px;
+    min-height: 70px;
+}
+
+/* Card Visão (Verde) */
+.sidebar-cards .card:nth-child(2) {
+    background: var(--verde-green);
+    padding: 20px 28px;
+    min-height: 70px;
+}
+
+/* Card Valores (Amarelo) */
+.sidebar-cards .card:nth-child(3) {
+    background: var(--amarelo-yellow);
+    padding: 20px 28px;
+    min-height: 70px;
+}
+
+.sidebar-cards .card-title {
+    color: var(--black);
+    font-size: 26px;
+    font-weight: 700;
+    text-align: center;
+    line-height: 1;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* ==================== Botão Voltar ao Topo Mobile-First ==================== */
+.back-to-top {
+    position: fixed;
+    bottom: 20px;
+    right: 16px;
+    width: 50px;
+    height: 50px;
+    background: linear-gradient(135deg, var(--rosa-pink) 0%, var(--laranja-orange) 100%);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--white);
+    font-size: 20px;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(255, 93, 143, 0.5);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    z-index: 1000;
+    border: none;
+    opacity: 0;
+    visibility: hidden;
+    transform: scale(0.8);
+    -webkit-tap-highlight-color: transparent;
+}
+
+.back-to-top.visible {
+    opacity: 1;
+    visibility: visible;
+    transform: scale(1);
+}
+
+.back-to-top:active {
+    transform: scale(0.9);
+    box-shadow: 0 2px 10px rgba(255, 93, 143, 0.4);
+}
+
+.back-to-top i {
+    animation: bounceUp 2s ease-in-out infinite;
+}
+
+@keyframes bounceUp {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-4px); }
+}
+
+/* Remover tooltip em mobile */
+.back-to-top::before,
+.back-to-top::after {
+    display: none;
+}
+
+/* ==================== Animações ==================== */
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes ripple {
+    0% {
+        transform: scale(0);
+        opacity: 1;
+    }
+    100% {
+        transform: scale(4);
+        opacity: 0;
+    }
+}
+
+/* ==================== Acessibilidade ==================== */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}
+
+*:focus-visible {
+    outline: 3px solid var(--rosa-pink);
+    outline-offset: 4px;
+    border-radius: 8px;
+}
+
+.skip-to-content {
+    position: absolute;
+    top: -40px;
+    left: 0;
+    background: var(--primary);
+    color: var(--white);
+    padding: 8px 16px;
+    text-decoration: none;
+    z-index: 9999;
+    border-radius: 0 0 8px 0;
+}
+
+.skip-to-content:focus {
+    top: 0;
+}
+
+/* ==================== RESPONSIVIDADE AVANÇADA ==================== */
+
+/* ==================== Extra Small Mobile (320px - 374px) ==================== */
+@media (max-width: 374px) {
+    :root {
+        --spacing-xs: 0.4rem;
+        --spacing-sm: 0.8rem;
+        --spacing-md: 1.2rem;
+    }
+    
+    main {
+        padding: 16px 12px;
+    }
+    
+    .hero-title {
+        padding: 16px 20px;
+        border-radius: 25px;
+        font-size: 13px;
+        margin-bottom: 20px;
+    }
+    
+    .hero-title strong {
+        font-size: 28px;
+        margin-top: 4px;
+    }
+    
+    .cards-grid {
+        gap: 14px;
+    }
+    
+    .card {
+        min-height: 130px;
+        padding: 20px;
+        border-radius: 22px;
+    }
+    
+    .card:nth-child(1) .card-icon,
+    .card:nth-child(3) .card-icon {
+        width: 90px;
+        height: 90px;
+    }
+    
+    .card:nth-child(2) .card-content {
+        font-size: 26px;
+    }
+    
+    .sidebar-cards .card-title {
+        font-size: 24px;
+    }
+    
+    header {
+        padding: 10px 12px;
+        border-bottom-left-radius: 20px;
+        border-bottom-right-radius: 20px;
+    }
+    
+    .logo {
+        font-size: 1rem;
+        gap: 8px;
+    }
+    
+    .logo-icon {
+        width: 34px;
+        height: 34px;
+    }
+    
+    .logo-text {
+        font-size: 0.95rem;
+    }
+    
+    .nav-link {
+        font-size: 0.8rem;
+        padding: 8px 12px;
+    }
+    
+    .perfil {
+        font-size: 0.8rem;
+        padding: 8px 14px;
+    }
+    
+    .perfil img {
+        width: 26px;
+        height: 26px;
+    }
+    
+    .back-to-top {
+        width: 46px;
+        height: 46px;
+        font-size: 18px;
+        bottom: 16px;
+        right: 12px;
+    }
+}
+
+/* ==================== Small Mobile (375px - 424px) ==================== */
+@media (min-width: 375px) and (max-width: 424px) {
+    main {
+        padding: 20px 14px;
+    }
+    
+    .hero-title {
+        padding: 18px 22px;
+        font-size: 14px;
+    }
+    
+    .hero-title strong {
+        font-size: 30px;
+    }
+    
+    .cards-grid {
+        gap: 15px;
+    }
+    
+    .card {
+        min-height: 135px;
+    }
+    
+    .card:nth-child(2) .card-content {
+        font-size: 27px;
+    }
+    
+    .sidebar-cards .card-title {
+        font-size: 25px;
+    }
+}
+
+/* ==================== Medium Mobile (425px - 599px) ==================== */
+@media (min-width: 425px) and (max-width: 599px) {
+    main {
+        padding: 22px 18px;
+    }
+    
+    .hero-title {
+        padding: 22px 26px;
+        font-size: 15px;
+        border-radius: 32px;
+    }
+    
+    .hero-title strong {
+        font-size: 34px;
+    }
+    
+    .cards-grid {
+        gap: 18px;
+    }
+    
+    .card {
+        min-height: 145px;
+        border-radius: 28px;
+    }
+    
+    .card:nth-child(1) .card-icon,
+    .card:nth-child(3) .card-icon {
+        width: 105px;
+        height: 105px;
+    }
+    
+    .card:nth-child(2) .card-content {
+        font-size: 30px;
+    }
+    
+    .sidebar-cards .card-title {
+        font-size: 27px;
+    }
+    
+    header {
+        padding: 14px 18px;
+        border-bottom-left-radius: 28px;
+        border-bottom-right-radius: 28px;
+    }
+    
+    .logo {
+        font-size: 1.15rem;
+    }
+    
+    .logo-icon {
+        width: 40px;
+        height: 40px;
+    }
+    
+    .nav-link {
+        font-size: 0.88rem;
+        padding: 11px 16px;
+    }
+    
+    .perfil {
+        font-size: 0.88rem;
+        padding: 11px 18px;
+    }
+    
+    .perfil img {
+        width: 30px;
+        height: 30px;
+    }
+    
+    .back-to-top {
+        width: 52px;
+        height: 52px;
+        font-size: 21px;
+    }
+}
+
+/* ==================== Tablet Portrait (600px - 767px) ==================== */
+@media (min-width: 600px) and (max-width: 767px) {
+    main {
+        padding: 28px 24px;
+        max-width: 600px;
+    }
+    
+    .hero-title {
+        padding: 26px 32px;
+        font-size: 16px;
+        border-radius: 38px;
+        margin-bottom: 28px;
+    }
+    
+    .hero-title strong {
+        font-size: 40px;
+        margin-top: 8px;
+    }
+    
+    .cards-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+    }
+    
+    .card {
+        min-height: 155px;
+        border-radius: 30px;
+    }
+    
+    .card:nth-child(1) {
+        grid-column: 1;
+        grid-row: 1;
+    }
+    
+    .card:nth-child(2) {
+        grid-column: span 2;
+        grid-row: 2;
+        padding: 35px 30px;
+    }
+    
+    .card:nth-child(3) {
+        grid-column: 2;
+        grid-row: 1;
+    }
+    
+    .card:nth-child(1) .card-icon,
+    .card:nth-child(3) .card-icon {
+        width: 110px;
+        height: 110px;
+    }
+    
+    .card:nth-child(2) .card-content {
+        font-size: 34px;
+    }
+    
+    .sidebar-cards {
+        grid-column: span 2;
+        grid-row: 3;
+        flex-direction: row;
+        gap: 20px;
+    }
+    
+    .sidebar-cards .card {
+        flex: 1;
+        padding: 22px 32px;
+        min-height: 75px;
+    }
+    
+    .sidebar-cards .card-title {
+        font-size: 29px;
+    }
+    
+    header {
+        padding: 14px 24px;
+        flex-direction: row;
+        align-items: center;
+        border-bottom-left-radius: 0; /* Sem border radius */
+        border-bottom-right-radius: 0;
+        gap: 20px;
+    }
+    
+    .header-top {
+        width: auto;
+        gap: 20px;
+    }
+    
+    .logo {
+        font-size: 1.2rem;
+        gap: 10px;
+    }
+    
+    .logo-icon {
+        width: 36px;
+        height: 36px;
+    }
+    
+    .logo-text {
+        font-size: 1rem;
+    }
+    
+    header nav {
+        width: auto;
+        flex: 1;
+        justify-content: center;
+        gap: 12px;
+    }
+    
+    .nav-link {
+        font-size: 0.92rem;
+        padding: 10px 18px;
+    }
+    
+    .perfil {
+        font-size: 0.92rem;
+        padding: 10px 24px;
+    }
+    
+    .perfil img {
+        width: 26px;
+        height: 26px;
+    }
+    
+    .back-to-top {
+        width: 54px;
+        height: 54px;
+        font-size: 22px;
+        bottom: 24px;
+        right: 20px;
+    }
+    
+    /* Mostrar tooltip em tablet */
+    .back-to-top::before {
+        display: block;
+        content: 'Voltar ao Início';
+        position: absolute;
+        right: 65px;
+        background: rgba(0, 0, 0, 0.8);
+        color: var(--white);
+        padding: 8px 12px;
+        border-radius: 8px;
+        font-size: 12px;
+        font-weight: 600;
+        white-space: nowrap;
+        opacity: 0;
+        visibility: hidden;
+        transition: all 0.3s ease;
+        pointer-events: none;
+    }
+    
+    .back-to-top:hover::before {
+        opacity: 1;
+        visibility: visible;
+    }
+}
+
+/* ==================== Tablet Landscape (768px - 899px) ==================== */
+@media (min-width: 768px) and (max-width: 899px) {
+    main {
+        padding: 32px 30px;
+        max-width: 750px;
+    }
+    
+    .hero-title {
+        padding: 30px 40px;
+        font-size: 18px;
+        border-radius: 42px;
+        margin-bottom: 32px;
+    }
+    
+    .hero-title strong {
+        font-size: 48px;
+    }
+    
+    .cards-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 22px;
+    }
+    
+    .card {
+        min-height: 165px;
+        border-radius: 32px;
+    }
+    
+    .card:nth-child(1) {
+        grid-column: 1;
+        grid-row: 1;
+    }
+    
+    .card:nth-child(2) {
+        grid-column: span 2;
+        grid-row: 2;
+        padding: 38px 35px;
+    }
+    
+    .card:nth-child(3) {
+        grid-column: 2;
+        grid-row: 1;
+    }
+    
+    .card:nth-child(1) .card-icon,
+    .card:nth-child(3) .card-icon {
+        width: 115px;
+        height: 115px;
+    }
+    
+    .card:nth-child(2) .card-content {
+        font-size: 38px;
+    }
+    
+    .sidebar-cards {
+        grid-column: span 2;
+        grid-row: 3;
+        flex-direction: row;
+        gap: 22px;
+    }
+    
+    .sidebar-cards .card {
+        flex: 1;
+        padding: 24px 36px;
+        min-height: 80px;
+    }
+    
+    .sidebar-cards .card-title {
+        font-size: 32px;
+    }
+    
+    header {
+        padding: 16px 30px;
+        border-bottom-left-radius: 0; /* Sem border radius */
+        border-bottom-right-radius: 0;
+    }
+    
+    .logo {
+        font-size: 1.3rem;
+    }
+    
+    .logo-icon {
+        width: 38px;
+        height: 38px;
+    }
+    
+    .nav-link {
+        font-size: 0.95rem;
+        padding: 10px 20px;
+    }
+    
+    .perfil {
+        font-size: 0.95rem;
+        padding: 10px 26px;
+    }
+    
+    .back-to-top {
+        width: 56px;
+        height: 56px;
+        font-size: 24px;
+        bottom: 26px;
+        right: 24px;
+    }
+}
+
+/* ==================== Small Desktop (900px - 1023px) ==================== */
+@media (min-width: 900px) and (max-width: 1023px) {
+    main {
+        padding: 35px 40px;
+        max-width: 880px;
+    }
+    
+    .hero-title {
+        padding: 35px 50px;
+        font-size: 20px;
+        border-radius: 48px;
+        margin-bottom: 36px;
+    }
+    
+    .hero-title strong {
+        font-size: 56px;
+    }
+    
+    .cards-grid {
+        grid-template-columns: 180px 1fr 180px;
+        gap: 24px;
+    }
+    
+    .card {
+        min-height: 175px;
+        border-radius: 34px;
+    }
+    
+    .card:nth-child(1) {
+        grid-column: 1;
+        grid-row: 1;
+        padding: 28px;
+    }
+    
+    .card:nth-child(2) {
+        grid-column: 2;
+        grid-row: 1;
+        padding: 40px 38px;
+    }
+    
+    .card:nth-child(3) {
+        grid-column: 3;
+        grid-row: 1;
+        padding: 28px;
+    }
+    
+    .card:nth-child(1) .card-icon,
+    .card:nth-child(3) .card-icon {
+        width: 118px;
+        height: 118px;
+    }
+    
+    .card:nth-child(2) .card-content {
+        font-size: 40px;
+    }
+    
+    .sidebar-cards {
+        grid-column: span 3;
+        grid-row: 2;
+        flex-direction: row;
+        gap: 24px;
+    }
+    
+    .sidebar-cards .card {
+        flex: 1;
+        padding: 26px 38px;
+        min-height: 85px;
+    }
+    
+    .sidebar-cards .card-title {
+        font-size: 34px;
+    }
+    
+    header {
+        padding: 16px 36px;
+        border-bottom-left-radius: 0;
+        border-bottom-right-radius: 0;
+        flex-direction: row;
+        align-items: center;
+    }
+    
+    .logo {
+        font-size: 1.25rem;
+    }
+    
+    .logo-icon {
+        width: 36px;
+        height: 36px;
+    }
+    
+    header nav {
+        flex: 1;
+        justify-content: center;
+        gap: 14px;
+    }
+    
+    .nav-link {
+        font-size: 0.95rem;
+        padding: 10px 18px;
+    }
+    
+    .perfil {
+        font-size: 0.95rem;
+        padding: 10px 26px;
+    }
+    
+    .back-to-top:hover {
+        transform: translateY(-3px) scale(1.05);
+        box-shadow: 0 6px 20px rgba(255, 93, 143, 0.5);
+    }
+}
+
+/* ==================== Desktop (1024px+) ==================== */
+@media (min-width: 1024px) {
+    body::before {
+        width: 300px;
+        height: 300px;
+        opacity: 0.6;
+    }
+    
+    body::after {
+        width: 400px;
+        height: 400px;
+        opacity: 0.6;
+    }
+    
+    main {
+        padding: 40px 50px;
+        max-width: 1000px;
+    }
+    
+    .hero-title {
+        padding: 45px 70px;
+        font-size: 24px;
+        border-radius: 60px;
+        margin-bottom: 40px;
+        min-width: 880px;
+    }
+    
+    .hero-title strong {
+        font-size: 68px;
+        margin-top: 10px;
+    }
+    
+    .cards-grid {
+        grid-template-columns: 180px 320px 180px 1fr;
+        gap: 25px;
+        max-width: 960px;
+    }
+    
+    .card {
+        min-height: 180px;
+        border-radius: 35px;
+    }
+    
+    .card:hover {
+        transform: translateY(-8px) scale(1.02);
+        box-shadow: 0 12px 35px rgba(0, 0, 0, 0.25);
+    }
+    
+    .card:nth-child(1) {
+        grid-column: 1;
+        grid-row: 1;
+        padding: 30px;
+    }
+    
+    .card:nth-child(2) {
+        grid-column: 2;
+        grid-row: 1;
+        padding: 40px;
+    }
+    
+    .card:nth-child(3) {
+        grid-column: 3;
+        grid-row: 1;
+        padding: 30px;
+    }
+    
+    .card:nth-child(1) .card-icon,
+    .card:nth-child(3) .card-icon {
+        width: 120px;
+        height: 120px;
+    }
+    
+    .card:nth-child(1):hover .card-icon {
+        transform: scale(1.1) rotate(5deg);
+    }
+    
+    .card:nth-child(3):hover .card-icon {
+        transform: scale(1.1) rotate(-5deg);
+    }
+    
+    .card:nth-child(2) .card-content {
+        font-size: 42px;
+    }
+    
+    .sidebar-cards {
+        grid-column: 4;
+        grid-row: 1;
+        flex-direction: column;
+        gap: 20px;
+    }
+    
+    .sidebar-cards .card {
+        padding: 25px 40px;
+        min-height: 70px;
+    }
+    
+    .sidebar-cards .card-title {
+        font-size: 36px;
+    }
+    
+    header {
+        padding: 16px 40px;
+        border-bottom-left-radius: 0; /* Sem border radius como na foto */
+        border-bottom-right-radius: 0;
+        flex-direction: row; /* Tudo em uma linha */
+        align-items: center;
+    }
+    
+    .header-top {
+        width: auto;
+        flex-direction: row;
+    }
+    
+    .logo {
+        font-size: 1.25rem;
+        gap: 10px;
+    }
+    
+    .logo:hover {
+        transform: scale(1.02);
+    }
+    
+    .logo-icon {
+        width: 36px;
+        height: 36px;
+    }
+    
+    header nav {
+        gap: 16px;
+        justify-content: center;
+        flex: 1;
+    }
+    
+    .nav-link {
+        font-size: 0.95rem;
+        padding: 10px 18px;
+    }
+    
+    .nav-link:hover {
+        background: rgba(255, 255, 255, 0.2);
+    }
+    
+    .perfil {
+        font-size: 0.95rem;
+        padding: 10px 28px;
+    }
+    
+    .perfil:hover {
+        background: #10ac84;
+        box-shadow: 0 4px 12px rgba(29, 209, 161, 0.4);
+    }
+    
+    .back-to-top {
+        width: 56px;
+        height: 56px;
+        font-size: 24px;
+        top: 20px;
+        right: 20px;
+        bottom: auto;
+    }
+    
+    .back-to-top:hover {
+        transform: translateY(-5px) scale(1.1);
+        box-shadow: 0 8px 25px rgba(255, 93, 143, 0.6);
+    }
+    
+    /* Tooltip completo para desktop */
+    .back-to-top::before {
+        display: block;
+        content: 'Voltar ao Início';
+        position: absolute;
+        right: 65px;
+        background: rgba(0, 0, 0, 0.8);
+        color: var(--white);
+        padding: 8px 12px;
+        border-radius: 8px;
+        font-size: 13px;
+        font-weight: 600;
+        white-space: nowrap;
+        opacity: 0;
+        visibility: hidden;
+        transition: all 0.3s ease;
+        pointer-events: none;
+    }
+    
+    .back-to-top:hover::before {
+        opacity: 1;
+        visibility: visible;
+        right: 70px;
+    }
+    
+    .back-to-top::after {
+        display: block;
+        content: '';
+        position: absolute;
+        right: 58px;
+        width: 0;
+        height: 0;
+        border-style: solid;
+        border-width: 6px 0 6px 8px;
+        border-color: transparent transparent transparent rgba(0, 0, 0, 0.8);
+        opacity: 0;
+        visibility: hidden;
+        transition: all 0.3s ease;
+        pointer-events: none;
+    }
+    
+    .back-to-top:hover::after {
+        opacity: 1;
+        visibility: visible;
+        right: 62px;
+    }
+}
+
+/* ==================== Large Desktop (1440px+) ==================== */
+@media (min-width: 1440px) {
+    main {
+        max-width: 1100px;
+    }
+    
+    .hero-title {
+        min-width: 920px;
+        padding: 50px 80px;
+        font-size: 26px;
+    }
+    
+    .hero-title strong {
+        font-size: 72px;
+    }
+    
+    .cards-grid {
+        max-width: 1000px;
+        gap: 28px;
+    }
+}
+
+/* ==================== Landscape Mobile (altura < 500px) ==================== */
+@media (max-height: 500px) and (orientation: landscape) {
+    header {
+        padding: 8px 16px;
+        border-bottom-left-radius: 20px;
+        border-bottom-right-radius: 20px;
+    }
+    
+    .logo {
+        font-size: 0.95rem;
+        gap: 8px;
+    }
+    
+    .logo-icon {
+        width: 32px;
+        height: 32px;
+    }
+    
+    .nav-link {
+        font-size: 0.8rem;
+        padding: 8px 12px;
+    }
+    
+    .perfil {
+        font-size: 0.8rem;
+        padding: 8px 14px;
+    }
+    
+    main {
+        padding: 16px;
+    }
+    
+    .hero-title {
+        padding: 16px 24px;
+        margin-bottom: 20px;
+        font-size: 13px;
+    }
+    
+    .hero-title strong {
+        font-size: 26px;
+    }
+    
+    .cards-grid {
+        gap: 14px;
+    }
+    
+    .card {
+        min-height: 120px;
+        padding: 18px;
+    }
+    
+    .back-to-top {
+        width: 44px;
+        height: 44px;
+        font-size: 18px;
+        bottom: 12px;
+        right: 12px;
+    }
+}
+
+/* ==================== Touch Devices (sem hover) ==================== */
+@media (hover: none) and (pointer: coarse) {
+    .card,
+    .nav-link,
+    .perfil,
+    .back-to-top {
+        min-height: var(--touch-target);
+        min-width: var(--touch-target);
+    }
+    
+    /* Remove hover effects em touch */
+    .card:hover,
+    .nav-link:hover,
+    .perfil:hover,
+    .logo:hover,
+    .back-to-top:hover {
+        transform: none;
+    }
+    
+    /* Adiciona feedback visual no toque */
+    .card:active {
+        transform: scale(0.97);
+        opacity: 0.95;
+    }
+    
+    .nav-link:active,
+    .perfil:active {
+        transform: scale(0.95);
+        opacity: 0.9;
+    }
+    
+    .back-to-top:active {
+        transform: scale(0.9);
+        opacity: 0.95;
+    }
+}
+
+/* ==================== Dark Mode Support ==================== */
+@media (prefers-color-scheme: dark) {
+    :root {
+        --background: #1a1a2e;
+        --background-alt: #16213e;
+        --text-dark: #eaeaea;
+        --text-medium: #b0b0b0;
+        --text-light: #808080;
+    }
+    
+    body::before,
+    body::after {
+        opacity: 0.2;
+    }
+    
+    .card {
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+    }
+    
+    .back-to-top {
+        box-shadow: 0 4px 15px rgba(255, 93, 143, 0.6);
+    }
+}
+
+/* ==================== High Contrast Mode ==================== */
+@media (prefers-contrast: high) {
+    .card {
+        border: 2px solid currentColor;
+    }
+    
+    .nav-link,
+    .perfil {
+        border: 1px solid rgba(0, 0, 0, 0.2);
+    }
+}
+
+/* ==================== Print Styles ==================== */
+@media print {
+    body::before,
+    body::after,
+    header,
+    .perfil,
+    .back-to-top {
+        display: none !important;
+    }
+    
+    body {
+        background: white;
+    }
+    
+    main {
+        max-width: 100%;
+        padding: 0;
+    }
+    
+    .card {
+        page-break-inside: avoid;
+        box-shadow: none;
+        border: 1px solid #ccc;
+    }
+    
+    .hero-title {
+        page-break-after: avoid;
+    }
+}
+
+/* ==================== Utilitários ==================== */
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border-width: 0;
+}
+
+.text-truncate {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.no-scroll {
+    overflow: hidden;
+    height: 100vh;
+}
+
+/* ==================== Performance Optimizations ==================== */
+.card,
+.nav-link,
+.perfil,
+.back-to-top {
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
+    backface-visibility: hidden;
+}
+
+img {
+    image-rendering: -webkit-optimize-contrast;
+    image-rendering: crisp-edges;
+}
+
+/* ==================== FIM DO ARQUIVO ==================== */

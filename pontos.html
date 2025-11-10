@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="description" content="ValidaDelivery - Salve alimentos, ganhe recompensas e ajude o planeta!">
+  <meta name="theme-color" content="#f69a01">
+  <title>Pontos - ValidaDelivery</title>
+  <link rel="stylesheet" href="pontos.css">
+</head>
+
+<body>
+  <header>
+    <div class="logo">
+      <div class="logo-icon"><img src="img/Captura de tela 2025-10-06 162710.png" width="50" alt="Logo ValidaDelivery"></div>
+      <span class="logo-text">ValidaDelivery</span>
+    </div>
+    <nav>
+      <a href="teladepedidos.html" class="nav-link active" aria-current="page">
+        <span aria-hidden="true">Início</span>
+        <span></span>
+      </a>
+      <a href="pontos.html" class="nav-link">
+        <span aria-hidden="true">Pontos</span>
+        <span></span>
+      </a>
+      <a href="passe.html" class="nav-link">
+        <span aria-hidden="true">Passe</span>
+        <span></span>
+      </a>
+      <a href="ecoponto.html" class="nav-link">
+        <span aria-hidden="true">Ecopontos</span>
+        <span></span>
+      </a>
+    </nav>
+    <a href="#" class="perfil" aria-label="Ir para perfil">
+      <img src="img/Captura_de_tela_2025-10-22_165502-removebg-preview (1).png" width="50">
+      <span>Perfil</span>
+    </a>
+  </header>
+
+  <main class="content">
+    <!-- Points Card -->
+    <section class="points-card" aria-labelledby="points-title">
+      <div class="points-top">
+        <div>
+          <h1 id="points-title" class="points-title">🌱 PONTOS VALIDADELIVERY</h1>
+          <p class="points-sub">Salve alimentos e ganhe recompensas</p>
+        </div>
+        <div style="text-align:right">
+          <div style="font-size:12px; color: rgba(255,255,255,0.95)">Seu saldo</div>
+          <div id="pointsDisplay" class="points-value" aria-live="polite">2450</div>
+        </div>
+      </div>
+
+      <div class="points-label">Pontos Disponíveis</div>
+      <div id="moneyApprox" class="points-value-money" aria-live="polite">≈ R$ 24,50 em descontos</div>
+
+      <div class="progress-section">
+        <div class="progress-header">
+          <div>Próxima recompensa em:</div>
+          <div><span id="pointsToNext" aria-live="polite">50</span> pontos</div>
+        </div>
+        <div class="progress-bar-container" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">
+          <div class="progress-bar-fill" id="progressBar" style="width: 0%"></div>
+        </div>
+      </div>
+
+      <div class="impact-grid">
+        <div class="impact">
+          <div class="num" id="mealsSaved" aria-live="polite">24</div>
+          <div class="lbl">🍔 Refeições Salvas</div>
+        </div>
+        <div class="impact">
+          <div class="num" id="co2avoided" aria-live="polite">6.4kg</div>
+          <div class="lbl">♻️ CO₂ Evitado</div>
+        </div>
+      </div>
+
+      <button class="earn-btn" id="openEarn" aria-label="Abrir menu para ganhar mais pontos">
+        🌟 GANHE MAIS PONTOS
+      </button>
+    </section>
+
+    <!-- Missions -->
+    <section class="section" aria-labelledby="missions-title">
+      <h2 id="missions-title">🎯 Missões Sustentáveis</h2>
+      <div class="mission">
+        <div class="title">🔥 Missão Semanal Ativa</div>
+        <div class="desc">Salve 5 produtos próximos da validade esta semana</div>
+        <div class="prize">+50 Pontos Bônus 🎁</div>
+      </div>
+    </section>
+
+    <!-- Check-in -->
+    <section class="section" aria-labelledby="checkin-title">
+      <h2 id="checkin-title">📅 Check-in Sustentável</h2>
+      <div id="checkinGrid" class="checkin-grid" role="group" aria-label="Dias da semana para check-in"></div>
+      <div class="streak" id="streakInfo" role="status" aria-live="polite">
+        <div class="streak-title">🔥 0 Dias Salvando o Planeta</div>
+        <div class="streak-desc">Faça check-in diariamente para ganhar bônus</div>
+      </div>
+    </section>
+
+    <!-- Rewards -->
+    <section class="section" aria-labelledby="rewards-title">
+      <h2 id="rewards-title">🎁 Trocar Pontos</h2>
+      <div class="rewards-grid" id="rewardsGrid" role="list"></div>
+    </section>
+
+    <!-- History -->
+    <section class="section" aria-labelledby="history-title">
+      <h2 id="history-title">📋 Histórico de Impacto</h2>
+      <div id="historyList" role="list"></div>
+    </section>
+  </main>
+
+  <!-- Modal -->
+  <div id="modalBackdrop" class="modal-backdrop" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+    <div class="modal" id="modalWindow">
+      <h3 id="modalTitle">Modal</h3>
+      <div id="modalBody" style="margin-top:8px"></div>
+      <div style="display:flex; justify-content:flex-end; gap:8px; margin-top:16px">
+        <button class="close" id="modalCancel" aria-label="Fechar modal">Fechar</button>
+        <button class="close" id="modalConfirm" aria-label="Confirmar ação"
+          style="background:linear-gradient(90deg,var(--primary),var(--primary-light)); color:white">
+          Confirmar
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast -->
+  <div id="toast" class="toast" role="alert" aria-live="assertive"></div>
+
+  <script src="pontos.js"></script>
+</body>
+
+</html>

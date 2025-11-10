@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Editar Perfil - Validade Delivery</title>
+    <link rel="stylesheet" href="editarperfil.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.cdnfonts.com/css/instagram-sans" rel="stylesheet">
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="logo">
+            <img src="img/Captura de tela 2025-10-06 162710.png" alt="Logo ValidaDelivery" width="50">
+            <span class="logo-text">ValidaDelivery</span>
+        </div>
+        <nav>
+            <a href="teladepedidos.html">Início</a>
+            <a href="#pontos">Pontos</a>
+            <a href="#passe">Passe</a>
+            <a href="#ecopontos">Ecopontos</a>
+        </nav>
+        <button class="perfil-btn">
+            <img src="img/Captura_de_tela_2025-10-22_165502-removebg-preview (1).png" width="50">
+            <span>Perfil</span>
+        </button>
+    </header>
+
+    <div class="container">
+        <!-- Page Header -->
+        <div class="page-header">
+            <div class="page-title">
+                <svg width="28" height="28" viewBox="0 0 24 24">
+                    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 3c1.66 0 3 1.34 3 3s-1.34 3-3 3-3-1.34-3-3 1.34-3 3-3zm0 14.2c-2.5 0-4.71-1.28-6-3.22.03-1.99 4-3.08 6-3.08 1.99 0 5.97 1.09 6 3.08-1.29 1.94-3.5 3.22-6 3.22z"/>
+                </svg>
+                <h1>Editar Perfil</h1>
+            </div>
+            <a href="perfil.html" class="back-btn">← Voltar</a>
+        </div>
+
+        <!-- Success Message -->
+        <div class="success-message" id="successMessage">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="white">
+                <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/>
+            </svg>
+            Perfil atualizado com sucesso!
+        </div>
+
+        <!-- Form Card -->
+        <div class="form-card">
+            <!-- Avatar Section -->
+            <div class="avatar-section">
+                <div class="avatar-preview" id="avatarPreview">
+                    LR
+                    <img id="avatarImage" alt="Avatar">
+                </div>
+                <input type="file" id="avatarInput" accept="image/*" style="display: none;">
+                <button type="button" class="change-avatar-btn" id="changeAvatarBtn">Alterar Foto</button>
+            </div>
+
+            <!-- Form -->
+            <form id="editProfileForm">
+                <!-- Informações Pessoais -->
+                <div class="form-section">
+                    <h3>
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="#F39C12">
+                            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 3c1.66 0 3 1.34 3 3s-1.34 3-3 3-3-1.34-3-3 1.34-3 3-3zm0 14.2c-2.5 0-4.71-1.28-6-3.22.03-1.99 4-3.08 6-3.08 1.99 0 5.97 1.09 6 3.08-1.29 1.94-3.5 3.22-6 3.22z"/>
+                        </svg>
+                        Informações Pessoais
+                    </h3>
+                    
+                    <div class="form-group">
+                        <label for="nomeCompleto">Nome Completo</label>
+                        <input type="text" id="nomeCompleto" name="nomeCompleto" value="Luiz Fellipe" placeholder="Digite seu nome completo">
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="email">E-mail</label>
+                            <input type="email" id="email" name="email" value="luizrosaleol23@gmail.com" placeholder="seu@email.com">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="telefone">Telefone</label>
+                            <input type="tel" id="telefone" name="telefone" value="(34) 98765-4321" placeholder="(00) 00000-0000">
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="cpf">CPF</label>
+                            <input type="text" id="cpf" name="cpf" value="123.456.789-00" placeholder="000.000.000-00">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="dataNascimento">Data de Nascimento</label>
+                            <input type="date" id="dataNascimento" name="dataNascimento" value="2000-01-15">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Endereço -->
+                <div class="form-section">
+                    <h3>
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="#52A194">
+                            <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
+                        </svg>
+                        Endereço de Entrega
+                    </h3>
+
+                    <div class="form-group">
+                        <label for="endereco">Endereço</label>
+                        <input type="text" id="endereco" name="endereco" value="Rua Namíbia, 84" placeholder="Rua, número">
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="bairro">Bairro</label>
+                            <input type="text" id="bairro" name="bairro" value="Laranjeiras" placeholder="Digite o bairro">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="cidade">Cidade</label>
+                            <input type="text" id="cidade" name="cidade" value="Uberlândia" placeholder="Digite a cidade">
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="estado">Estado</label>
+                            <select id="estado" name="estado">
+                                <option value="MG" selected>Minas Gerais</option>
+                                <option value="SP">São Paulo</option>
+                                <option value="RJ">Rio de Janeiro</option>
+                                <option value="ES">Espírito Santo</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="cep">CEP</label>
+                            <input type="text" id="cep" name="cep" value="38410-290" placeholder="00000-000">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Form Actions -->
+                <div class="form-actions">
+                    <button type="button" class="btn-cancel" onclick="window.location.href='perfil.html'">Cancelar</button>
+                    <button type="submit" class="btn-save">Salvar Alterações</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <script src="editarperfil.js"></script>
+    </script>
+</body>
+</html>

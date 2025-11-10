@@ -1,0 +1,1148 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Instagram Sans', 'Poppins', sans-serif;
+}
+
+body {
+    font-family: 'Instagram Sans', 'Poppins', sans-serif;
+    background: linear-gradient(135deg, #E3F2FD 0%, #E8EAF6 50%, #F3E5F5 100%);
+    min-height: 100vh;
+    position: relative;
+    overflow-x: hidden;
+    font-size: 18px;
+}
+
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 0;
+    background-image: 
+        radial-gradient(circle at 10% 12%, rgba(255, 182, 193, 0.5) 0%, rgba(255, 182, 193, 0.5) 80px, transparent 80px),
+        radial-gradient(circle at 50% 70%, rgba(200, 230, 201, 0.4) 0%, rgba(200, 230, 201, 0.4) 100px, transparent 100px),
+        radial-gradient(circle at 88% 85%, rgba(179, 229, 252, 0.3) 0%, rgba(179, 229, 252, 0.3) 50px, transparent 50px),
+        radial-gradient(circle at 30% 50%, rgba(206, 147, 216, 0.25) 0%, rgba(206, 147, 216, 0.25) 35px, transparent 35px),
+        radial-gradient(circle at 80% 25%, rgba(255, 218, 185, 0.35) 0%, rgba(255, 218, 185, 0.35) 40px, transparent 40px);
+}
+
+/* ==================== Header ==================== */
+header {
+    background: linear-gradient(90deg, #F39C12 0%, #F5A623 100%);
+    padding: 15px 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 0 0 30px 30px;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: #000;
+    text-decoration: none;
+    transition: all 0.3s;
+}
+
+.logo:hover {
+    transform: scale(1.05);
+}
+
+.logo-text {
+    color: #000;
+    font-weight: 700;
+    font-size: 1.8rem;
+}
+
+nav {
+    display: flex;
+    gap: 30px;
+    align-items: center;
+}
+
+nav a {
+    color: #000;
+    text-decoration: none;
+    font-size: 1.2rem;
+    font-weight: 500;
+    padding: 8px 16px;
+    position: relative;
+    transition: all 0.3s;
+}
+
+nav a::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 3px;
+    background: #000;
+    transition: all 0.3s;
+    border-radius: 2px;
+}
+
+nav a:hover::before,
+nav a.active::before {
+    width: 80%;
+}
+
+.perfil-btn {
+    background: linear-gradient(135deg, #52A194 0%, #468B7F 100%);
+    padding: 10px 28px;
+    border-radius: 25px;
+    color: white;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.3s;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    border: none;
+    font-size: 1.2rem;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+}
+
+.perfil-btn:hover {
+    background: linear-gradient(135deg, #468B7F 0%, #3A7469 100%);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+}
+
+/* ==================== Container ==================== */
+.container {
+    max-width: 1200px;
+    margin: 40px auto;
+    padding: 0 50px;
+    position: relative;
+    z-index: 1;
+}
+
+/* ==================== Page Header ==================== */
+.page-header {
+    text-align: center;
+    margin-bottom: 40px;
+    position: relative;
+}
+
+.back-btn {
+    position: absolute;
+    left: 0;
+    top: 0;
+    background: white;
+    border: 2px solid #ECF0F1;
+    padding: 12px 24px;
+    border-radius: 25px;
+    color: #000;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 1.1rem;
+}
+
+.back-btn:hover {
+    background: #F39C12;
+    color: white;
+    border-color: #F39C12;
+    transform: translateX(-5px);
+}
+
+.page-header h1 {
+    font-size: 42px;
+    color: #000;
+    margin-bottom: 10px;
+}
+
+.subtitle {
+    font-size: 19px;
+    color: #000;
+}
+
+/* ==================== Filters ==================== */
+.filters-section {
+    background: #1a1a1a;
+    border-radius: 20px;
+    padding: 25px;
+    margin-bottom: 30px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.filter-group {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.filter-group label {
+    font-size: 17px;
+    font-weight: 600;
+    color: #fff;
+}
+
+.filter-select {
+    padding: 12px 22px;
+    border: 2px solid #ECF0F1;
+    border-radius: 15px;
+    font-size: 17px;
+    color: #fff;
+    background: #2a2a2a;
+    cursor: pointer;
+    transition: all 0.3s;
+    font-weight: 500;
+}
+
+.filter-select:hover {
+    border-color: #F39C12;
+}
+
+.filter-select:focus {
+    outline: none;
+    border-color: #F39C12;
+    box-shadow: 0 0 0 3px rgba(243, 156, 18, 0.1);
+}
+
+.search-box {
+    flex: 1;
+    min-width: 250px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background: #2a2a2a;
+    padding: 12px 22px;
+    border-radius: 15px;
+    border: 2px solid transparent;
+    transition: all 0.3s;
+}
+
+.search-box:focus-within {
+    border-color: #F39C12;
+    background: #333;
+}
+
+.search-box svg {
+    color: #95A5A6;
+}
+
+.search-box input {
+    flex: 1;
+    border: none;
+    background: transparent;
+    font-size: 17px;
+    color: #fff;
+}
+
+.search-box input:focus {
+    outline: none;
+}
+
+.search-box input::placeholder {
+    color: #95A5A6;
+}
+
+/* ==================== Stats Cards ==================== */
+.stats-cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    margin-bottom: 30px;
+}
+
+.stat-card {
+    background: #ff558c;
+    border-radius: 20px;
+    padding: 25px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    transition: all 0.3s;
+}
+
+.stat-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.12);
+}
+
+.stat-icon {
+    width: 60px;
+    height: 60px;
+    border-radius: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.stat-info {
+    flex: 1;
+}
+
+.stat-number {
+    font-size: 32px;
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 5px;
+}
+
+.stat-label {
+    font-size: 16px;
+    color: #fff;
+}
+
+/* ==================== Orders Container ==================== */
+.orders-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.order-card {
+    background: #ff558c;
+    border-radius: 20px;
+    padding: 25px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+    transition: all 0.3s;
+}
+
+.order-card:hover {
+    box-shadow: 0 8px 30px rgba(0,0,0,0.12);
+    transform: translateY(-2px);
+}
+
+.order-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    padding-bottom: 15px;
+    border-bottom: 2px solid rgba(255, 255, 255, 0.3);
+}
+
+.order-number {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.order-id {
+    font-size: 24px;
+    font-weight: 700;
+    color: #fff;
+}
+
+.order-date {
+    font-size: 15px;
+    color: #fff;
+}
+
+.status-badge {
+    padding: 10px 24px;
+    border-radius: 20px;
+    font-size: 15px;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+.status-badge.entregue {
+    background: #D4EDDA;
+    color: #155724; 
+}
+
+.status-badge.em-andamento {
+    background: #FFF3CD;
+    color: #856404;
+}
+
+.status-badge.cancelado {
+    background: #F8D7DA;
+    color: #721C24;
+}
+
+.order-body {
+    margin-bottom: 20px;
+}
+
+.restaurant-info {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.restaurant-logo {
+    width: 60px;
+    height: 60px;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0.1) 100%);
+    border-radius: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 30px;
+}
+
+.restaurant-details h3 {
+    font-size: 21px;
+    color: #fff;
+    margin-bottom: 5px;
+}
+
+.restaurant-details p {
+    font-size: 16px;
+    color: #fff;
+}
+
+.order-items {
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 15px;
+    padding: 15px;
+    margin-bottom: 15px;
+}
+
+.item {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 10px 0;
+}
+
+.item:not(:last-child) {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.item-qty {
+    font-size: 16px;
+    font-weight: 700;
+    color: #fff;
+    min-width: 30px;
+}
+
+.item-name {
+    flex: 1;
+    font-size: 17px;
+    color: #fff;
+}
+
+.item-price {
+    font-size: 17px;
+    font-weight: 700;
+    color: #fff;
+}
+
+.order-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 15px;
+    border-top: 2px solid rgba(255, 255, 255, 0.3);
+}
+
+.eco-info {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 16px;
+    color: #fff;
+    font-weight: 600;
+}
+
+.order-total {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 18px;
+    color: #fff;
+}
+
+.order-total strong {
+    font-size: 28px;
+    color: #fff;
+    font-weight: 700;
+}
+
+.order-actions {
+    display: flex;
+    gap: 15px;
+    margin-top: 20px;
+    padding-top: 20px;
+    border-top: 2px solid rgba(255, 255, 255, 0.3);
+}
+
+.action-btn {
+    flex: 1;
+    padding: 14px 28px;
+    border-radius: 15px;
+    font-size: 17px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.3s;
+    border: none;
+}
+
+.action-btn.primary {
+    background: #000;
+    color: #fff;
+}
+
+.action-btn.primary:hover {
+    background: #333;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.action-btn.secondary {
+    background: #000;
+    color: #fff;
+    border: 2px solid #000;
+}
+
+.action-btn.secondary:hover {
+    background: #333;
+    border-color: #333;
+}
+
+.action-btn.danger {
+    background: #64b6d0;
+    color: white;
+}
+
+.action-btn.danger:hover {
+    background: #C0392B;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(231, 76, 60, 0.3);
+}
+
+/* ==================== No Orders ==================== */
+.no-orders {
+    text-align: center;
+    padding: 80px 20px;
+    background: #ff558c;
+    border-radius: 20px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+}
+
+.no-orders svg {
+    margin-bottom: 20px;
+    opacity: 0.5;
+}
+
+.no-orders h2 {
+    font-size: 32px;
+    color: #fff;
+    margin-bottom: 10px;
+}
+
+.no-orders p {
+    font-size: 19px;
+    color: #fff;
+    margin-bottom: 30px;
+}
+
+.no-orders .action-btn {
+    display: inline-block;
+    width: auto;
+    min-width: 200px;
+}
+
+/* ==================== Responsivo ==================== */
+
+/* Tablet */
+@media (max-width: 1024px) {
+    .stats-cards {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .container {
+        padding: 0 30px;
+    }
+
+    header {
+        padding: 15px 30px;
+    }
+}
+
+/* Tablet pequeno / Mobile grande */
+@media (max-width: 768px) {
+    body {
+        font-size: 16px;
+    }
+
+    header {
+        flex-direction: column;
+        gap: 15px;
+        padding: 12px 20px;
+        border-radius: 0 0 15px 15px;
+    }
+
+    .logo {
+        font-size: 1.6rem;
+    }
+
+    .logo-text {
+        font-size: 1.6rem;
+    }
+
+    nav {
+        order: 3;
+        width: 100%;
+        justify-content: space-around;
+        gap: 8px;
+        padding-top: 10px;
+        border-top: 2px solid rgba(255, 255, 255, 0.2);
+        flex-wrap: wrap;
+    }
+
+    nav a {
+        font-size: 0.95rem;
+        padding: 6px 12px;
+    }
+
+    .perfil-btn {
+        padding: 10px 20px;
+        font-size: 1rem;
+    }
+
+    .container {
+        padding: 0 20px;
+        margin: 30px auto;
+    }
+
+    .page-header {
+        margin-bottom: 30px;
+    }
+
+    .page-header h1 {
+        font-size: 34px;
+        margin-top: 60px;
+    }
+
+    .subtitle {
+        font-size: 17px;
+    }
+
+    .back-btn {
+        position: static;
+        margin-bottom: 20px;
+        width: fit-content;
+        font-size: 1rem;
+        padding: 10px 20px;
+    }
+
+    .filters-section {
+        padding: 20px;
+        gap: 15px;
+    }
+
+    .stats-cards {
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+
+    .stat-card {
+        padding: 20px;
+    }
+
+    .order-card {
+        padding: 20px;
+    }
+
+    .order-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+    }
+
+    .status-badge {
+        align-self: flex-end;
+    }
+
+    .restaurant-details h3 {
+        font-size: 19px;
+    }
+
+    .restaurant-details p {
+        font-size: 15px;
+    }
+
+    .order-id {
+        font-size: 22px;
+    }
+
+    .order-footer {
+        flex-direction: column;
+        gap: 15px;
+        align-items: flex-start;
+    }
+
+    .order-total {
+        align-self: flex-end;
+    }
+
+    .order-actions {
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    .action-btn {
+        padding: 12px 24px;
+    }
+
+    .stat-number {
+        font-size: 28px;
+    }
+
+    .no-orders {
+        padding: 60px 20px;
+    }
+
+    .no-orders h2 {
+        font-size: 28px;
+    }
+
+    .no-orders p {
+        font-size: 17px;
+    }
+}
+
+/* Mobile */
+@media (max-width: 600px) {
+    body {
+        font-size: 15px;
+    }
+
+    header {
+        padding: 10px 15px;
+        gap: 12px;
+    }
+
+    .logo {
+        font-size: 1.4rem;
+    }
+
+    .logo img {
+        width: 40px !important;
+    }
+
+    .logo-text {
+        display: none;
+    }
+
+    nav {
+        gap: 5px;
+        padding-top: 8px;
+    }
+
+    nav a {
+        font-size: 0.85rem;
+        padding: 5px 10px;
+    }
+
+    .perfil-btn {
+        padding: 8px 16px;
+        font-size: 0.9rem;
+    }
+
+    .perfil-btn img {
+        width: 35px !important;
+    }
+
+    .perfil-btn span:last-child {
+        display: none;
+    }
+
+    .container {
+        padding: 0 15px;
+        margin: 20px auto;
+    }
+
+    .page-header h1 {
+        font-size: 28px;
+        margin-top: 50px;
+    }
+
+    .subtitle {
+        font-size: 15px;
+    }
+
+    .back-btn {
+        font-size: 0.9rem;
+        padding: 8px 16px;
+    }
+
+    .filters-section {
+        padding: 15px;
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .filter-group {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 8px;
+    }
+
+    .filter-group label {
+        font-size: 15px;
+    }
+
+    .filter-select {
+        width: 100%;
+        font-size: 15px;
+        padding: 10px 18px;
+    }
+
+    .search-box {
+        min-width: 100%;
+        padding: 10px 18px;
+    }
+
+    .search-box input {
+        font-size: 15px;
+    }
+
+    .stats-cards {
+        gap: 12px;
+    }
+
+    .stat-card {
+        padding: 18px;
+        gap: 15px;
+    }
+
+    .stat-icon {
+        width: 50px;
+        height: 50px;
+    }
+
+    .stat-icon svg {
+        width: 20px;
+        height: 20px;
+    }
+
+    .stat-number {
+        font-size: 24px;
+    }
+
+    .stat-label {
+        font-size: 14px;
+    }
+
+    .order-card {
+        padding: 18px;
+    }
+
+    .order-header {
+        margin-bottom: 15px;
+        padding-bottom: 12px;
+    }
+
+    .order-id {
+        font-size: 20px;
+    }
+
+    .order-date {
+        font-size: 13px;
+    }
+
+    .status-badge {
+        padding: 8px 18px;
+        font-size: 13px;
+    }
+
+    .restaurant-info {
+        flex-direction: row;
+        text-align: left;
+        margin-bottom: 15px;
+    }
+
+    .restaurant-logo {
+        width: 50px;
+        height: 50px;
+        font-size: 26px;
+    }
+
+    .restaurant-details h3 {
+        font-size: 17px;
+    }
+
+    .restaurant-details p {
+        font-size: 13px;
+        line-height: 1.4;
+    }
+
+    .order-items {
+        padding: 12px;
+    }
+
+    .item {
+        padding: 8px 0;
+        gap: 10px;
+        flex-wrap: wrap;
+    }
+
+    .item-qty {
+        font-size: 14px;
+        min-width: 25px;
+    }
+
+    .item-name {
+        font-size: 15px;
+        flex: 1 1 100%;
+        order: 2;
+    }
+
+    .item-price {
+        font-size: 15px;
+        order: 1;
+        margin-left: auto;
+    }
+
+    .order-footer {
+        padding-top: 12px;
+        gap: 12px;
+    }
+
+    .eco-info {
+        font-size: 14px;
+    }
+
+    .eco-info svg {
+        width: 18px;
+        height: 18px;
+    }
+
+    .order-total {
+        font-size: 16px;
+    }
+
+    .order-total strong {
+        font-size: 22px;
+    }
+
+    .order-actions {
+        margin-top: 15px;
+        padding-top: 15px;
+        gap: 10px;
+    }
+
+    .action-btn {
+        font-size: 15px;
+        padding: 11px 20px;
+    }
+
+    .no-orders {
+        padding: 50px 15px;
+    }
+
+    .no-orders svg {
+        width: 80px;
+        height: 80px;
+    }
+
+    .no-orders h2 {
+        font-size: 24px;
+    }
+
+    .no-orders p {
+        font-size: 15px;
+    }
+
+    .no-orders .action-btn {
+        min-width: 180px;
+        padding: 12px 24px;
+    }
+}
+
+/* Mobile pequeno */
+@media (max-width: 400px) {
+    body {
+        font-size: 14px;
+    }
+
+    .page-header h1 {
+        font-size: 24px;
+    }
+
+    .subtitle {
+        font-size: 14px;
+    }
+
+    nav a {
+        font-size: 0.8rem;
+        padding: 5px 8px;
+    }
+
+    .stat-number {
+        font-size: 22px;
+    }
+
+    .stat-label {
+        font-size: 13px;
+    }
+
+    .order-id {
+        font-size: 18px;
+    }
+
+    .restaurant-details h3 {
+        font-size: 16px;
+    }
+
+    .restaurant-details p {
+        font-size: 12px;
+    }
+
+    .item-name {
+        font-size: 14px;
+    }
+
+    .item-price {
+        font-size: 14px;
+    }
+
+    .order-total strong {
+        font-size: 20px;
+    }
+
+    .action-btn {
+        font-size: 14px;
+        padding: 10px 18px;
+    }
+}
+
+/* Melhorias para touch em dispositivos móveis */
+@media (hover: none) and (pointer: coarse) {
+    /* Aumentar área de toque dos botões */
+    .action-btn {
+        min-height: 44px;
+        padding: 12px 24px;
+    }
+
+    .back-btn {
+        min-height: 44px;
+    }
+
+    .perfil-btn {
+        min-height: 44px;
+    }
+
+    nav a {
+        min-height: 40px;
+        display: flex;
+        align-items: center;
+    }
+
+    .filter-select {
+        min-height: 44px;
+    }
+
+    /* Remover hover effects em touch devices */
+    .order-card:hover {
+        transform: none;
+    }
+
+    .stat-card:hover {
+        transform: none;
+    }
+
+    /* Adicionar feedback de toque */
+    .action-btn:active {
+        transform: scale(0.98);
+        opacity: 0.9;
+    }
+
+    .back-btn:active {
+        transform: translateX(-3px) scale(0.98);
+    }
+
+    .order-card {
+        margin-bottom: 5px;
+    }
+}
+
+/* Melhorias de acessibilidade e usabilidade */
+@media (max-width: 768px) {
+    /* Melhor espaçamento entre elementos tocáveis */
+    .order-actions {
+        gap: 12px;
+    }
+
+    /* Scroll suave */
+    html {
+        scroll-behavior: smooth;
+    }
+
+    /* Prevenir zoom em inputs em iOS */
+    input,
+    select,
+    textarea {
+        font-size: 16px !important;
+    }
+
+    /* Melhor legibilidade dos textos */
+    .restaurant-details p {
+        line-height: 1.5;
+    }
+
+    .item-name {
+        line-height: 1.4;
+    }
+
+    /* Cards com melhor separação visual */
+    .order-card + .order-card {
+        margin-top: 20px;
+    }
+
+    .stat-card {
+        min-height: 100px;
+    }
+}
+
+/* Orientação paisagem em mobile */
+@media (max-width: 768px) and (orientation: landscape) {
+    .page-header h1 {
+        font-size: 28px;
+        margin-top: 20px;
+    }
+
+    .container {
+        margin: 20px auto;
+    }
+
+    .order-card {
+        padding: 18px;
+    }
+
+    .filters-section {
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+
+    .filter-group {
+        flex-direction: row;
+        flex: 0 1 auto;
+    }
+
+    .search-box {
+        flex: 1 1 100%;
+    }
+}

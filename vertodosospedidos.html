@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Todos os Pedidos - Validade Delivery</title>
+    <link rel="stylesheet" href="todosospedidos.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.cdnfonts.com/css/instagram-sans" rel="stylesheet">
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="logo">
+            <img src="img/Captura de tela 2025-10-06 162710.png" alt="Logo ValidaDelivery" width="50">
+            <span class="logo-text">ValidaDelivery</span>
+        </div>
+        <nav>
+            <a href="http://127.0.0.1:5500/ValidadeDelivery/teladepedidos.html">Início</a>
+            <a href="#pontos">Pontos</a>
+            <a href="#passe">Passe</a>
+            <a href="#ecopontos">Ecopontos</a>
+        </nav>
+        <button class="perfil-btn" onclick="window.location.href='http://127.0.0.1:5500/perfil.html'">
+            <img src="img/Captura_de_tela_2025-10-22_165502-removebg-preview (1).png" width="50">
+            <span>Perfil</span>
+        </button>
+    </header>
+
+    <div class="container">
+        <!-- Cabeçalho da página -->
+        <div class="page-header">
+            <button class="back-btn" onclick="window.history.back()">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                    <path d="M19 12H5M5 12L12 19M5 12L12 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                Voltar
+            </button>
+            <h1>Histórico de Pedidos</h1>
+            <p class="subtitle">Acompanhe todos os seus pedidos realizados</p>
+        </div>
+
+        <!-- Filtros -->
+        <div class="filters-section">
+            <div class="filter-group">
+                <label>Período:</label>
+                <select id="periodo-filter" class="filter-select">
+                    <option value="todos">Todos</option>
+                    <option value="hoje">Hoje</option>
+                    <option value="semana">Última semana</option>
+                    <option value="mes" selected>Último mês</option>
+                    <option value="ano">Último ano</option>
+                </select>
+            </div>
+            
+            <div class="filter-group">
+                <label>Status:</label>
+                <select id="status-filter" class="filter-select">
+                    <option value="todos">Todos</option>
+                    <option value="entregue">Entregue</option>
+                    <option value="cancelado">Cancelado</option>
+                    <option value="em-andamento">Em andamento</option>
+                </select>
+            </div>
+
+            <div class="search-box">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                    <path d="M21 21L15 15M17 10C17 13.866 13.866 17 10 17C6.13401 17 3 13.866 3 10C3 6.13401 6.13401 3 10 3C13.866 3 17 6.13401 17 10Z" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                </svg>
+                <input type="text" id="search-input" placeholder="Buscar pedido...">
+            </div>
+        </div>
+
+        <!-- Estatísticas resumidas -->
+        <div class="stats-cards">
+            <div class="stat-card">
+                <div class="stat-icon" style="background: linear-gradient(135deg, #52A194 0%, #468B7F 100%);">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="white">
+                        <path d="M9 11L12 14L22 4M21 12V19C21 19.5304 20.7893 20.0391 20.4142 20.4142C20.0391 20.7893 19.5304 21 19 21H5C4.46957 21 3.96086 20.7893 3.58579 20.4142C3.21071 20.0391 3 19.5304 3 19V5C3 4.46957 3.21071 3.96086 3.58579 3.58579C3.96086 3.21071 4.46957 3 5 3H16"/>
+                    </svg>
+                </div>
+                <div class="stat-info">
+                    <div class="stat-number">47</div>
+                    <div class="stat-label">Total de Pedidos</div>
+                </div>
+            </div>
+
+            <div class="stat-card">
+                <div class="stat-icon" style="background: linear-gradient(135deg, #FF6B9D 0%, #FF85B3 100%);">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="white">
+                        <path d="M12 17.27L18.18 21L16.54 13.97L22 9.24L14.81 8.63L12 2L9.19 8.63L2 9.24L7.46 13.97L5.82 21L12 17.27Z"/>
+                    </svg>
+                </div>
+                <div class="stat-info">
+                    <div class="stat-number">1.2k</div>
+                    <div class="stat-label">Ecopontos Ganhos</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Lista de pedidos -->
+        <div class="orders-container">
+            <div class="order-card" data-status="entregue" data-date="2025-10-22">
+                <div class="order-header">
+                    <div class="order-number">
+                        <span class="order-id">#1247</span>
+                        <span class="order-date">22/10/2025 - 18:45</span>
+                    </div>
+                    <span class="status-badge entregue">Entregue</span>
+                </div>
+                
+                <div class="order-body">
+                    <div class="restaurant-info">
+                        <div class="restaurant-logo">🍕</div>
+                        <div class="restaurant-details">
+                            <h3>Pizzaria Bella Massa</h3>
+                            <p>Rua das Flores, 123</p>
+                        </div>
+                    </div>
+
+                    <div class="order-items">
+                        <div class="item">
+                            <span class="item-qty">1x</span>
+                            <span class="item-name">Pizza de Calabresa Grande</span>
+                            <span class="item-price">R$ 45,00</span>
+                        </div>
+                        <div class="item">
+                            <span class="item-qty">2x</span>
+                            <span class="item-name">Refrigerante 2L</span>
+                            <span class="item-price">R$ 16,00</span>
+                        </div>
+                    </div>
+
+                    <div class="order-footer">
+                        <div class="eco-info">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="#52A194">
+                                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+                            </svg>
+                            <span>+25 Ecopontos</span>
+                        </div>
+                        <div class="order-total">
+                            <span>Total:</span>
+                            <strong>R$ 61,00</strong>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="order-actions">
+                    <button class="action-btn secondary">Ver Detalhes</button>
+                    <button class="action-btn primary">Pedir Novamente</button>
+                </div>
+            </div>
+
+            <div class="order-card" data-status="entregue" data-date="2025-10-20">
+                <div class="order-header">
+                    <div class="order-number">
+                        <span class="order-id">#1246</span>
+                        <span class="order-date">20/10/2025 - 20:15</span>
+                    </div>
+                    <span class="status-badge entregue">Entregue</span>
+                </div>
+                
+                <div class="order-body">
+                    <div class="restaurant-info">
+                        <div class="restaurant-logo">🍔</div>
+                        <div class="restaurant-details">
+                            <h3>Burger House Premium</h3>
+                            <p>Av. Central, 456</p>
+                        </div>
+                    </div>
+
+                    <div class="order-items">
+                        <div class="item">
+                            <span class="item-qty">2x</span>
+                            <span class="item-name">Hambúrguer Artesanal</span>
+                            <span class="item-price">R$ 60,00</span>
+                        </div>
+                        <div class="item">
+                            <span class="item-qty">1x</span>
+                            <span class="item-name">Batata Frita Grande</span>
+                            <span class="item-price">R$ 18,00</span>
+                        </div>
+                    </div>
+
+                    <div class="order-footer">
+                        <div class="eco-info">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="#52A194">
+                                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+                            </svg>
+                            <span>+40 Ecopontos</span>
+                        </div>
+                        <div class="order-total">
+                            <span>Total:</span>
+                            <strong>R$ 78,00</strong>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="order-actions">
+                    <button class="action-btn secondary">Ver Detalhes</button>
+                    <button class="action-btn primary">Pedir Novamente</button>
+                </div>
+            </div>
+
+            <div class="order-card" data-status="em-andamento" data-date="2025-10-24">
+                <div class="order-header">
+                    <div class="order-number">
+                        <span class="order-id">#1248</span>
+                        <span class="order-date">24/10/2025 - 12:30</span>
+                    </div>
+                    <span class="status-badge em-andamento">Em andamento</span>
+                </div>
+                
+                <div class="order-body">
+                    <div class="restaurant-info">
+                        <div class="restaurant-logo">🍱</div>
+                        <div class="restaurant-details">
+                            <h3>Sushi & Co</h3>
+                            <p>Rua Japão, 789</p>
+                        </div>
+                    </div>
+
+                    <div class="order-items">
+                        <div class="item">
+                            <span class="item-qty">1x</span>
+                            <span class="item-name">Combo Sushi Premium</span>
+                            <span class="item-price">R$ 85,00</span>
+                        </div>
+                    </div>
+
+                    <div class="order-footer">
+                        <div class="eco-info">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="#52A194">
+                                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+                            </svg>
+                            <span>+45 Ecopontos (pendente)</span>
+                        </div>
+                        <div class="order-total">
+                            <span>Total:</span>
+                            <strong>R$ 85,00</strong>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="order-actions">
+                    <button class="action-btn secondary">Rastrear Pedido</button>
+                    <button class="action-btn danger">Cancelar</button>
+                </div>
+            </div>
+
+            <div class="order-card" data-status="entregue" data-date="2025-10-18">
+                <div class="order-header">
+                    <div class="order-number">
+                        <span class="order-id">#1245</span>
+                        <span class="order-date">18/10/2025 - 19:20</span>
+                    </div>
+                    <span class="status-badge entregue">Entregue</span>
+                </div>
+                
+                <div class="order-body">
+                    <div class="restaurant-info">
+                        <div class="restaurant-logo">🥖</div>
+                        <div class="restaurant-details">
+                            <h3>Padaria Pão Quente</h3>
+                            <p>Rua do Comércio, 321</p>
+                        </div>
+                    </div>
+
+                    <div class="order-items">
+                        <div class="item">
+                            <span class="item-qty">12x</span>
+                            <span class="item-name">Pão de Queijo Especial</span>
+                            <span class="item-price">R$ 36,00</span>
+                        </div>
+                        <div class="item">
+                            <span class="item-qty">1x</span>
+                            <span class="item-name">Café Expresso</span>
+                            <span class="item-price">R$ 8,00</span>
+                        </div>
+                    </div>
+
+                    <div class="order-footer">
+                        <div class="eco-info">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="#52A194">
+                                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+                            </svg>
+                            <span>+20 Ecopontos</span>
+                        </div>
+                        <div class="order-total">
+                            <span>Total:</span>
+                            <strong>R$ 44,00</strong>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="order-actions">
+                    <button class="action-btn secondary">Ver Detalhes</button>
+                    <button class="action-btn primary">Pedir Novamente</button>
+                </div>
+            </div>
+
+            <div class="order-card" data-status="cancelado" data-date="2025-10-15">
+                <div class="order-header">
+                    <div class="order-number">
+                        <span class="order-id">#1244</span>
+                        <span class="order-date">15/10/2025 - 21:00</span>
+                    </div>
+                    <span class="status-badge cancelado">Cancelado</span>
+                </div>
+                
+                <div class="order-body">
+                    <div class="restaurant-info">
+                        <div class="restaurant-logo">🌮</div>
+                        <div class="restaurant-details">
+                            <h3>Taco Mexicano</h3>
+                            <p>Av. México, 555</p>
+                        </div>
+                    </div>
+
+                    <div class="order-items">
+                        <div class="item">
+                            <span class="item-qty">3x</span>
+                            <span class="item-name">Taco de Carne</span>
+                            <span class="item-price">R$ 42,00</span>
+                        </div>
+                    </div>
+
+                    <div class="order-footer">
+                        <div class="eco-info" style="opacity: 0.5;">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="#95A5A6">
+                                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z"/>
+                            </svg>
+                            <span>Pedido cancelado</span>
+                        </div>
+                        <div class="order-total">
+                            <span>Total:</span>
+                            <strong>R$ 42,00</strong>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="order-actions">
+                    <button class="action-btn secondary">Ver Motivo</button>
+                    <button class="action-btn primary">Pedir Novamente</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mensagem quando não há pedidos -->
+        <div class="no-orders" style="display: none;">
+            <svg width="120" height="120" viewBox="0 0 24 24" fill="#BDC3C7">
+                <path d="M15.55 13c.75 0 1.41-.41 1.75-1.03l3.58-6.49A.996.996 0 0020.01 4H5.21l-.94-2H1v2h2l3.6 7.59-1.35 2.44C4.52 15.37 5.48 17 7 17h12v-2H7l1.1-2h7.45zM6.16 6h12.15l-2.76 5H8.53L6.16 6zM7 18c-1.1 0-1.99.9-1.99 2S5.9 22 7 22s2-.9 2-2-.9-2-2-2zm10 0c-1.1 0-1.99.9-1.99 2s.89 2 1.99 2 2-.9 2-2-.9-2-2-2z"/>
+            </svg>
+            <h2>Nenhum pedido encontrado</h2>
+            <p>Ajuste os filtros ou faça seu primeiro pedido!</p>
+            <button class="action-btn primary" onclick="window.location.href='http://127.0.0.1:5500/ValidadeDelivery/teladepedidos.html'">
+                Fazer Pedido
+            </button>
+        </div>
+    </div>
+
+    <script src="todosospedidos.js"></script>
+</body>
+</html>

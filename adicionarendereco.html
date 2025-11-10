@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Adicionar Endereço - Validade Delivery</title>
+    <link rel="stylesheet" href="adicionarendereco.css"
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.cdnfonts.com/css/instagram-sans" rel="stylesheet">
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="logo">
+            <img src="img/Captura de tela 2025-10-06 162710.png" alt="Logo ValidaDelivery" width="50">
+            <span class="logo-text">ValidaDelivery</span>
+        </div>
+        <nav>
+            <a href="teladepedidos.html">Início</a>
+            <a href="#pontos">Pontos</a>
+            <a href="#passe">Passe</a>
+            <a href="#ecopontos">Ecopontos</a>
+        </nav>
+        <button class="perfil-btn">
+            <img src="img/Captura_de_tela_2025-10-22_165502-removebg-preview (1).png" width="50">
+            <span>Perfil</span>
+        </button>
+    </header>
+
+    <div class="container">
+        <!-- Page Header -->
+        <div class="page-header">
+            <div class="page-title">
+                <svg width="28" height="28" viewBox="0 0 24 24">
+                    <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
+                </svg>
+                <h1>Adicionar Endereço</h1>
+            </div>
+            <a href="perfil.html" class="back-btn">← Voltar</a>
+        </div>
+
+        <!-- Success Message -->
+        <div class="success-message" id="successMessage">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="white">
+                <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/>
+            </svg>
+            Endereço salvo com sucesso!
+        </div>
+
+        <!-- Form Card -->
+        <div class="form-card">
+            <!-- Dica -->
+            <div class="address-tip">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="#F39C12">
+                    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z"/>
+                </svg>
+                <div class="address-tip-text">
+                    <strong>Dica:</strong> Digite seu CEP para preenchimento automático do endereço. Isso torna o processo mais rápido e preciso!
+                </div>
+            </div>
+
+            <!-- Form -->
+            <form id="addAddressForm">
+                <!-- Localização do Endereço -->
+                <div class="form-section">
+                    <h3>
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="#52A194">
+                            <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
+                        </svg>
+                        Localização
+                    </h3>
+
+                    <div class="form-row-3">
+                        <div class="form-group">
+                            <label for="cep">CEP <span class="required">*</span></label>
+                            <input type="text" id="cep" name="cep" placeholder="00000-000" required>
+                        </div>
+                        <button type="button" class="cep-search-btn" id="searchCep">🔍 Buscar</button>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="logradouro">Endereço (Rua, Avenida) <span class="required">*</span></label>
+                        <input type="text" id="logradouro" name="logradouro" placeholder="Ex: Rua das Flores" required>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="numero">Número <span class="required">*</span></label>
+                            <input type="text" id="numero" name="numero" placeholder="Ex: 123" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="complemento">Complemento</label>
+                            <input type="text" id="complemento" name="complemento" placeholder="Ex: Apto 45, Bloco B">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="bairro">Bairro <span class="required">*</span></label>
+                        <input type="text" id="bairro" name="bairro" placeholder="Digite o bairro" required>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="cidade">Cidade <span class="required">*</span></label>
+                            <input type="text" id="cidade" name="cidade" placeholder="Digite a cidade" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="estado">Estado <span class="required">*</span></label>
+                            <select id="estado" name="estado" required>
+                                <option value="">Selecione</option>
+                                <option value="AC">Acre</option>
+                                <option value="AL">Alagoas</option>
+                                <option value="AP">Amapá</option>
+                                <option value="AM">Amazonas</option>
+                                <option value="BA">Bahia</option>
+                                <option value="CE">Ceará</option>
+                                <option value="DF">Distrito Federal</option>
+                                <option value="ES">Espírito Santo</option>
+                                <option value="GO">Goiás</option>
+                                <option value="MA">Maranhão</option>
+                                <option value="MT">Mato Grosso</option>
+                                <option value="MS">Mato Grosso do Sul</option>
+                                <option value="MG">Minas Gerais</option>
+                                <option value="PA">Pará</option>
+                                <option value="PB">Paraíba</option>
+                                <option value="PR">Paraná</option>
+                                <option value="PE">Pernambuco</option>
+                                <option value="PI">Piauí</option>
+                                <option value="RJ">Rio de Janeiro</option>
+                                <option value="RN">Rio Grande do Norte</option>
+                                <option value="RS">Rio Grande do Sul</option>
+                                <option value="RO">Rondônia</option>
+                                <option value="RR">Roraima</option>
+                                <option value="SC">Santa Catarina</option>
+                                <option value="SP">São Paulo</option>
+                                <option value="SE">Sergipe</option>
+                                <option value="TO">Tocantins</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Informações Adicionais -->
+                <div class="form-section">
+                    <h3>
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="#F39C12">
+                            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/>
+                        </svg>
+                        Informações Adicionais
+                    </h3>
+
+                    <div class="form-group">
+                        <label for="pontoReferencia">Ponto de Referência</label>
+                        <textarea id="pontoReferencia" name="pontoReferencia" placeholder="Ex: Próximo ao mercado São João, portão azul"></textarea>
+                    </div>
+
+                    <div class="checkbox-group">
+                        <input type="checkbox" id="enderecoPrincipal" name="enderecoPrincipal">
+                        <label for="enderecoPrincipal">Definir como endereço principal</label>
+                    </div>
+                </div>
+
+                <!-- Form Actions -->
+                <div class="form-actions">
+                    <button type="button" class="btn-cancel" onclick="window.location.href='perfil.html'">Cancelar</button>
+                    <button type="submit" class="btn-save">Salvar Endereço</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <script src="adicionarendereco.js"></script>
+</script>
+</body>
+</html>

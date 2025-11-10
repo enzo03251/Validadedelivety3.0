@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta name="description" content="ValidaDelivery - Delivery rápido com produtos frescos, promoções imperdíveis e sustentabilidade. Peça agora!">
+    <meta name="keywords" content="delivery, comida, pedidos online, fast food, promoções, delivery sustentável">
+    <meta name="author" content="ValidaDelivery">
+    <meta name="theme-color" content="#f28c00">
+    <meta name="robots" content="index, follow">
+    
+    <!-- PWA Support -->
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="ValidaDelivery">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://validadelivery.com.br">
+    <meta property="og:title" content="ValidaDelivery - Delivery Rápido e Sustentável">
+    <meta property="og:description" content="Os melhores produtos com entrega rápida e compromisso com o meio ambiente">
+    <meta property="og:image" content="./img/og-image.jpg">
+    
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="ValidaDelivery - Delivery Sustentável">
+    <meta name="twitter:description" content="Produtos frescos com entrega rápida">
+    
+    <title>Pedidos - ValidaDelivery | Delivery Rápido e Sustentável</title>
+
+    <!-- Preconnect para otimização de performance -->
+    <link rel="preconnect" href="https://fonts.cdnfonts.com" crossorigin>
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+    <link rel="dns-prefetch" href="https://images.unsplash.com">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="pedidos.css">
+
+    <!-- Fonte Instagram Sans -->
+    <link rel="stylesheet" href="https://fonts.cdnfonts.com/css/instagram-sans" media="print" onload="this.media='all'">
+    <noscript><link rel="stylesheet" href="https://fonts.cdnfonts.com/css/instagram-sans"></noscript>
+    
+    <!-- Font Awesome com SRI -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" 
+          integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" 
+          crossorigin="anonymous" 
+          referrerpolicy="no-referrer">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" sizes="32x32" href="./img/favicon.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="./img/apple-touch-icon.png">
+    
+    <!-- Manifest PWA -->
+    <link rel="manifest" href="./manifest.json">
+
+    <!-- Performance Hints -->
+    <link rel="prefetch" href="pedidos.js">
+</head>
+
+<body>
+    <!-- Skip to main content para acessibilidade -->
+    <a href="#main-content" class="skip-to-content">Pular para o conteúdo principal</a>
+
+    <!-- Loading Screen -->
+    <div id="loadingScreen" class="loading-screen" aria-hidden="true" role="status">
+        <div class="loading-spinner" aria-label="Carregando"></div>
+        <p aria-live="polite">Carregando delícias... 🍕</p>
+    </div>
+
+    <!-- Header -->
+    <header role="banner">
+        <a href="./" class="logo" aria-label="ValidaDelivery - Ir para página inicial">
+            <img src="img/Captura de tela 2025-10-06 162710.png" 
+                 alt="Logo ValidaDelivery" 
+                 class="logo-icon" 
+                 width="45" 
+                 height="45"
+                 loading="eager"
+                 decoding="async">
+            <span class="logo-text">ValidaDelivery</span>
+        </a>
+
+        <!-- Barra de Pesquisa -->
+        <div class="search-container" role="search">
+            <label for="searchInput" class="sr-only">Buscar produtos</label>
+            <i class="fas fa-search search-icon" aria-hidden="true"></i>
+            <input type="search" 
+                   id="searchInput"
+                   placeholder="Buscar produtos..."
+                   aria-label="Buscar produtos"
+                   autocomplete="off"
+                   spellcheck="false">
+            <button id="clearSearch" 
+                    class="clear-search" 
+                    aria-label="Limpar busca" 
+                    type="button"
+                    style="display: none;">
+                <i class="fas fa-times" aria-hidden="true"></i>
+            </button>
+        </div>
+
+        <nav role="navigation" aria-label="Navegação principal">
+            <a href="./teladepedidos.html" class="nav-link">
+                <i class="fas fa-home nav-icon" aria-hidden="true"></i>
+                <span>Início</span>
+            </a>
+            <a href="./pontos.html" class="nav-link">
+                <i class="fas fa-map-marker-alt nav-icon" aria-hidden="true"></i>
+                <span>Pontos</span>
+            </a>
+            <a href="./passe.html" class="nav-link active" aria-current="page">
+                <i class="fas fa-ticket-alt nav-icon" aria-hidden="true"></i>
+                <span>Passe</span>
+            </a>
+            <a href="./ecoponto.html" class="nav-link">
+                <i class="fas fa-recycle nav-icon" aria-hidden="true"></i>
+                <span>Ecopontos</span>
+            </a>
+        </nav>
+
+        <div class="header-controls">
+            <!-- Toggle Dark Mode -->
+            <button id="themeToggle" 
+                    class="theme-toggle" 
+                    aria-label="Alternar tema escuro/claro" 
+                    type="button"
+                    title="Alternar tema">
+                <i class="fas fa-moon" aria-hidden="true"></i>
+            </button>
+            
+            <!-- Perfil -->
+            <a href="./perfil.html" class="perfil" aria-label="Acessar perfil do usuário">
+                <img src="img/Captura_de_tela_2025-10-22_165502-removebg-preview (1).png" 
+                     alt="Foto de perfil" 
+                     width="50" 
+                     height="50">
+                <span>Perfil</span>
+            </a>
+        </div>
+    </header>
+
+    <!-- Conteúdo Principal -->
+    <main id="main-content" class="main-content">
+        <div class="container">
+            <!-- Breadcrumb -->
+            <nav aria-label="Breadcrumb" class="breadcrumb">
+                <ol>
+                    <li><a href="./">Início</a></li>
+                    <li aria-current="page">Pedidos</li>
+                </ol>
+            </nav>
+
+            <!-- Filtros e Ordenação -->
+            <div class="filters-bar">
+                <!-- Seção de Categorias -->
+                <section class="categorias" aria-label="Filtros de categoria">
+                    <button class="categoria-btn active" 
+                            data-categoria="todos" 
+                            aria-pressed="true"
+                            type="button">
+                        <span class="categoria-icon" aria-hidden="true">🍽️</span>
+                        <span>Todos</span>
+                    </button>
+                    <button class="categoria-btn" 
+                            data-categoria="lanches" 
+                            aria-pressed="false"
+                            type="button">
+                        <span class="categoria-icon" aria-hidden="true">🍔</span>
+                        <span>Lanches</span>
+                    </button>
+                    <button class="categoria-btn" 
+                            data-categoria="saudavel" 
+                            aria-pressed="false"
+                            type="button">
+                        <span class="categoria-icon" aria-hidden="true">🥗</span>
+                        <span>Saudável</span>
+                    </button>
+                    <button class="categoria-btn" 
+                            data-categoria="doces" 
+                            aria-pressed="false"
+                            type="button">
+                        <span class="categoria-icon" aria-hidden="true">🍰</span>
+                        <span>Doces</span>
+                    </button>
+                    <button class="categoria-btn" 
+                            data-categoria="congelados" 
+                            aria-pressed="false"
+                            type="button">
+                        <span class="categoria-icon" aria-hidden="true">❄️</span>
+                        <span>Congelados</span>
+                    </button>
+                </section>
+
+                <!-- Ordenação -->
+                <div class="sort-container">
+                    <label for="sortSelect" class="sr-only">Ordenar por</label>
+                    <select id="sortSelect" class="sort-select" aria-label="Ordenar produtos">
+                        <option value="relevancia">Mais Relevantes</option>
+                        <option value="preco-asc">Menor Preço</option>
+                        <option value="preco-desc">Maior Preço</option>
+                        <option value="rating">Melhor Avaliação</option>
+                        <option value="nome">Nome A-Z</option>
+                    </select>
+                </div>
+            </div>
+
+            <!-- Info de Resultados -->
+            <div class="results-info" role="status" aria-live="polite" aria-atomic="true">
+                <span id="resultsCount">Carregando produtos...</span>
+            </div>
+
+            <!-- Grid de Produtos -->
+            <div class="grid" id="productsGrid" role="list" aria-label="Lista de produtos disponíveis">
+                <!-- Os produtos serão renderizados aqui pelo JavaScript -->
+            </div>
+
+            <!-- Paginação -->
+            <nav class="pagination" id="pagination" style="display: none;" aria-label="Paginação de produtos">
+                <button class="pagination-btn" 
+                        id="prevPage" 
+                        aria-label="Página anterior"
+                        type="button">
+                    <i class="fas fa-chevron-left" aria-hidden="true"></i>
+                </button>
+                <span id="pageInfo" aria-live="polite">Página 1 de 1</span>
+                <button class="pagination-btn" 
+                        id="nextPage" 
+                        aria-label="Próxima página"
+                        type="button">
+                    <i class="fas fa-chevron-right" aria-hidden="true"></i>
+                </button>
+            </nav>
+        </div>
+
+        <!-- Barra lateral -->
+        <aside class="sidebar" aria-label="Menu de ações rápidas">
+            <ul role="menu">
+                <li class="sidebar-item" 
+                    data-action="promocoes" 
+                    role="menuitem" 
+                    tabindex="0"
+                    aria-label="Ver promoções">
+                    <span class="sidebar-icon" aria-hidden="true">🎁</span>
+                    <span class="sidebar-text">Promoções</span>
+                </li>
+                <li class="sidebar-item" 
+                    data-action="favoritos" 
+                    role="menuitem" 
+                    tabindex="0"
+                    aria-label="Ver favoritos">
+                    <span class="sidebar-icon" aria-hidden="true">❤️</span>
+                    <span class="sidebar-text">Favoritos</span>
+                    <span id="favCount" 
+                          class="notification-badge" 
+                          style="display: none;" 
+                          role="status"
+                          aria-live="polite"
+                          aria-label="Itens favoritos">0</span>
+                </li>
+                <li class="sidebar-item" 
+                    data-action="historico" 
+                    role="menuitem" 
+                    tabindex="0"
+                    aria-label="Ver histórico de pedidos">
+                    <span class="sidebar-icon" aria-hidden="true">📜</span>
+                    <span class="sidebar-text">Histórico</span>
+                </li>
+                <li class="sidebar-item" 
+                    data-action="notificacoes" 
+                    role="menuitem" 
+                    tabindex="0"
+                    aria-label="Ver notificações">
+                    <span class="sidebar-icon" aria-hidden="true">🔔</span>
+                    <span class="sidebar-text">Notificações</span>
+                    <span id="notifCount" 
+                          class="notification-badge" 
+                          style="display: none;" 
+                          role="status"
+                          aria-live="polite"
+                          aria-label="Notificações não lidas">0</span>
+                </li>
+            </ul>
+        </aside>
+    </main>
+
+    <!-- Carrinho flutuante -->
+    <button class="carrinho-float" 
+            id="carrinhoFloat" 
+            aria-label="Abrir carrinho de compras"
+            type="button">
+        <span class="carrinho-icon" aria-hidden="true">🛒</span>
+        <span class="carrinho-count" 
+              id="carrinhoCount" 
+              style="display: none;" 
+              role="status"
+              aria-live="polite"
+              aria-label="Itens no carrinho">0</span>
+        <span class="carrinho-pulse" aria-hidden="true"></span>
+    </button>
+
+    <!-- Botão Scroll to Top -->
+    <button id="scrollToTop" 
+            class="scroll-to-top" 
+            aria-label="Voltar ao topo da página" 
+            type="button"
+            style="display: none;">
+        <i class="fas fa-arrow-up" aria-hidden="true"></i>
+    </button>
+
+    <!-- Modal do Carrinho -->
+    <div class="modal" 
+         id="modalCarrinho" 
+         role="dialog" 
+         aria-modal="true" 
+         aria-labelledby="modalCarrinhoTitle" 
+         aria-hidden="true">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 id="modalCarrinhoTitle">
+                    <span class="modal-icon" aria-hidden="true">🛒</span>
+                    Meu Carrinho
+                </h2>
+                <button class="close-modal" 
+                        aria-label="Fechar carrinho" 
+                        type="button">
+                    <i class="fas fa-times" aria-hidden="true"></i>
+                </button>
+            </div>
+            <div id="cartItems" class="cart-items-container">
+                <!-- Itens do carrinho serão inseridos aqui -->
+            </div>
+            <div class="cart-summary">
+                <div class="cart-info">
+                    <span>Subtotal:</span>
+                    <span id="cartSubtotal" aria-live="polite">R$ 0,00</span>
+                </div>
+                <div class="cart-info">
+                    <span>Taxa de entrega:</span>
+                    <span class="delivery-fee">R$ 5,00</span>
+                </div>
+                <div class="cart-info discount-info" id="discountInfo" style="display: none;">
+                    <span>Desconto:</span>
+                    <span id="discountAmount" class="discount-amount">R$ 0,00</span>
+                </div>
+                <div class="cart-total" id="cartTotal" aria-live="polite">
+                    <span>Total:</span>
+                    <span>R$ 5,00</span>
+                </div>
+                
+                <!-- Campo de Cupom -->
+                <form class="coupon-container" id="couponForm">
+                    <label for="couponInput" class="sr-only">Código do cupom de desconto</label>
+                    <input type="text" 
+                           id="couponInput" 
+                           placeholder="Código do cupom"
+                           aria-label="Código do cupom de desconto"
+                           autocomplete="off"
+                           maxlength="20">
+                    <button id="applyCoupon" 
+                            class="apply-coupon-btn" 
+                            type="submit"
+                            aria-label="Aplicar cupom">
+                        Aplicar
+                    </button>
+                </form>
+            </div>
+            <button class="finalizar-pedido" 
+                    id="finalizarPedido" 
+                    type="button">
+                <span aria-hidden="true">✨</span>
+                Finalizar Pedido
+                <span aria-hidden="true">✨</span>
+            </button>
+        </div>
+    </div>
+
+    <!-- Modal Genérico -->
+    <div class="modal" 
+         id="modalGenerico" 
+         role="dialog" 
+         aria-modal="true" 
+         aria-labelledby="modalTitle" 
+         aria-hidden="true">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 id="modalTitle">Modal</h2>
+                <button class="close-modal" 
+                        aria-label="Fechar modal" 
+                        type="button">
+                    <i class="fas fa-times" aria-hidden="true"></i>
+                </button>
+            </div>
+            <div id="modalBody">
+                <!-- Conteúdo dinâmico será inserido aqui -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Notificação Toast -->
+    <div class="notification" 
+         id="notification" 
+         role="alert" 
+         aria-live="assertive" 
+         aria-atomic="true"></div>
+
+    <!-- Cookie Consent -->
+    <aside id="cookieConsent" 
+           class="cookie-consent" 
+           style="display: none;"
+           role="complementary"
+           aria-label="Consentimento de cookies">
+        <div class="cookie-content">
+            <p>🍪 Usamos cookies para melhorar sua experiência. Ao continuar navegando, você concorda com nossa <a href="./privacidade.html" rel="noopener noreferrer">política de privacidade</a>.</p>
+            <div class="cookie-buttons">
+                <button id="acceptCookies" class="btn-accept" type="button">Aceitar</button>
+                <button id="rejectCookies" class="btn-reject" type="button">Recusar</button>
+            </div>
+        </div>
+    </aside>
+
+    <!-- Footer -->
+    <footer class="footer" role="contentinfo">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>ValidaDelivery</h3>
+                <p>Entrega rápida e produtos frescos para você!</p>
+            </div>
+            <div class="footer-section">
+                <h4>Links Úteis</h4>
+                <ul>
+                    <li><a href="./sobre.html">Sobre Nós</a></li>
+                    <li><a href="./contato.html">Contato</a></li>
+                    <li><a href="./termos.html">Termos de Uso</a></li>
+                    <li><a href="./privacidade.html">Política de Privacidade</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Redes Sociais</h4>
+                <div class="social-links">
+                    <a href="https://facebook.com" aria-label="Facebook" target="_blank" rel="noopener noreferrer">
+                        <i class="fab fa-facebook" aria-hidden="true"></i>
+                    </a>
+                    <a href="https://instagram.com" aria-label="Instagram" target="_blank" rel="noopener noreferrer">
+                        <i class="fab fa-instagram" aria-hidden="true"></i>
+                    </a>
+                    <a href="https://twitter.com" aria-label="Twitter" target="_blank" rel="noopener noreferrer">
+                        <i class="fab fa-twitter" aria-hidden="true"></i>
+                    </a>
+                    <a href="https://wa.me/5534999999999" aria-label="WhatsApp" target="_blank" rel="noopener noreferrer">
+                        <i class="fab fa-whatsapp" aria-hidden="true"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 ValidaDelivery. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+    <!-- JS com defer para melhor performance -->
+    <script src="pedidos.js" defer></script>
+
+    <!-- Service Worker para PWA -->
+    <script>
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('./sw.js')
+                    .then(reg => console.log('✅ Service Worker registrado'))
+                    .catch(err => console.warn('❌ Erro no Service Worker:', err));
+            });
+        }
+    </script>
+
+</body>
+
+</html>

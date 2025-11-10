@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Encontre ecopontos parceiros em Uberlândia - ValidaDelivery">
+    <title>Mapa dos Ecopontos - ValidaDelivery</title>
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="ecoponto.css">
+    
+    <!-- Fontes -->
+    <link rel="stylesheet" href="https://fonts.cdnfonts.com/css/instagram-sans">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body>
+    <!-- Header -->
+    <header role="banner">
+        <a href="./" class="logo" aria-label="ValidaDelivery - Ir para página inicial">
+            <img src="img/Captura de tela 2025-10-06 162710.png" alt="Logo ValidaDelivery" class="logo-icon">
+            <span class="logo-text">ValidaDelivery</span>
+        </a>
+
+        <nav role="navigation" aria-label="Navegação principal">
+            <a href="./teladepedidos.html" class="nav-link">
+                <i class="fas fa-home nav-icon" aria-hidden="true"></i>
+                <span>Início</span>
+            </a>
+            <a href="./pontos.html" class="nav-link">
+                <i class="fas fa-map-marker-alt nav-icon" aria-hidden="true"></i>
+                <span>Pontos</span>
+            </a>
+            <a href="./passe.html" class="nav-link">
+                <i class="fas fa-ticket-alt nav-icon" aria-hidden="true"></i>
+                <span>Passe</span>
+            </a>
+            <a href="./ecoponto.html" class="nav-link active" aria-current="page">
+                <i class="fas fa-recycle nav-icon" aria-hidden="true"></i>
+                <span>Ecopontos</span>
+            </a>
+        </nav>
+
+        <a href="./perfil.html" class="perfil" aria-label="Acessar perfil">
+            <img src="img/Captura_de_tela_2025-10-22_165502-removebg-preview (1).png" width="50">
+            <span>Perfil</span>
+        </a>
+    </header>
+
+    <!-- Conteúdo Principal -->
+    <main role="main">
+        <!-- Cabeçalho da Página -->
+        <div class="page-header">
+            <h1 class="mapa-title">
+                <span class="title-icon" aria-hidden="true">♻️</span>
+                EcoPontos Parceiros em Uberlândia
+            </h1>
+            <p class="page-subtitle">
+                Encontre pontos de coleta sustentável próximos a você
+            </p>
+        </div>
+
+        <!-- Seção do Mapa -->
+        <section class="mapa-section" aria-label="Mapa interativo de ecopontos">
+            <!-- Fundo decorativo -->
+            <div class="mapa-bg" aria-hidden="true"></div>
+
+            <!-- Container do Mapa -->
+            <div class="mapa-container">
+                <iframe 
+                    src="https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d143642.69611604232!2d-48.41010645400715!3d-18.902840028377877!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1secopontos%20em%20uberlandia!5e0!3m2!1spt-BR!2sbr!4v1761238282495!5m2!1spt-BR!2sbr"
+                    width="100%" 
+                    height="100%" 
+                    style="border:0;" 
+                    allowfullscreen="" 
+                    loading="lazy"
+                    referrerpolicy="no-referrer-when-downgrade"
+                    title="Mapa de ecopontos em Uberlândia">
+                </iframe>
+            </div>
+        </section>
+
+        <!-- Card de Informações -->
+        <section class="info-card" aria-labelledby="info-title">
+            <h2 id="info-title">
+                <i class="fas fa-leaf" aria-hidden="true"></i>
+                O que são Ecopontos?
+            </h2>
+            <p>
+                Ecopontos são locais de coleta onde você pode descartar materiais recicláveis 
+                e contribuir para um planeta mais sustentável. No ValidaDelivery, parceiros que 
+                utilizam ecopontos ganham pontos extras!
+            </p>
+            
+            <h3 class="info-subtitle">
+                <i class="fas fa-check-circle" aria-hidden="true"></i>
+                O que você pode descartar:
+            </h3>
+            <ul class="benefits-list">
+                <li>
+                    <i class="fas fa-box" aria-hidden="true"></i>
+                    <span>Embalagens plásticas e papelão</span>
+                </li>
+                <li>
+                    <i class="fas fa-wine-bottle" aria-hidden="true"></i>
+                    <span>Garrafas de vidro e metal</span>
+                </li>
+                <li>
+                    <i class="fas fa-mobile-alt" aria-hidden="true"></i>
+                    <span>Eletrônicos e pilhas</span>
+                </li>
+                <li>
+                    <i class="fas fa-oil-can" aria-hidden="true"></i>
+                    <span>Óleo de cozinha usado</span>
+                </li>
+                <li>
+                    <i class="fas fa-newspaper" aria-hidden="true"></i>
+                    <span>Papel e papelão</span>
+                </li>
+            </ul>
+
+            <div class="cta-box">
+                <i class="fas fa-gift" aria-hidden="true"></i>
+                <p class="cta-text">
+                    <strong>Ganhe pontos</strong> a cada visita a um ecoponto!
+                </p>
+            </div>
+        </section>
+
+        <!-- Seção de Ecopontos em Destaque -->
+        <section class="featured-ecopontos" aria-labelledby="featured-title">
+            <h2 id="featured-title" class="section-title">
+                <i class="fas fa-star" aria-hidden="true"></i>
+                Ecopontos em Destaque
+            </h2>
+            
+            <div class="ecopontos-grid">
+                <article class="ecoponto-card">
+                    <div class="ecoponto-icon">
+                        <i class="fas fa-map-marker-alt" aria-hidden="true"></i>
+                    </div>
+                    <h3>EcoPonto Shopping</h3>
+                    <p class="ecoponto-address">
+                        <i class="fas fa-location-dot" aria-hidden="true"></i>
+                        Av. João Naves de Ávila, 1331
+                    </p>
+                    <p class="ecoponto-hours">
+                        <i class="fas fa-clock" aria-hidden="true"></i>
+                        Seg-Sáb: 9h - 21h
+                    </p>
+                    <span class="ecoponto-badge">Aberto agora</span>
+                </article>
+
+                <article class="ecoponto-card">
+                    <div class="ecoponto-icon">
+                        <i class="fas fa-map-marker-alt" aria-hidden="true"></i>
+                    </div>
+                    <h3>EcoPonto Centro</h3>
+                    <p class="ecoponto-address">
+                        <i class="fas fa-location-dot" aria-hidden="true"></i>
+                        Rua Padre Pio, 450
+                    </p>
+                    <p class="ecoponto-hours">
+                        <i class="fas fa-clock" aria-hidden="true"></i>
+                        Seg-Sex: 8h - 18h
+                    </p>
+                    <span class="ecoponto-badge featured">⭐ Destaque</span>
+                </article>
+
+                <article class="ecoponto-card">
+                    <div class="ecoponto-icon">
+                        <i class="fas fa-map-marker-alt" aria-hidden="true"></i>
+                    </div>
+                    <h3>EcoPonto Morumbi</h3>
+                    <p class="ecoponto-address">
+                        <i class="fas fa-location-dot" aria-hidden="true"></i>
+                        Av. Rondon Pacheco, 2500
+                    </p>
+                    <p class="ecoponto-hours">
+                        <i class="fas fa-clock" aria-hidden="true"></i>
+                        Seg-Dom: 7h - 20h
+                    </p>
+                    <span class="ecoponto-badge">Aberto agora</span>
+                </article>
+            </div>
+        </section>
+    </main>
+
+    <!-- Botão Flutuante - Localização -->
+    <button class="fab-location" 
+            type="button" 
+            aria-label="Encontrar ecoponto mais próximo"
+            title="Encontrar ecoponto mais próximo">
+        <i class="fas fa-location-crosshairs" aria-hidden="true"></i>
+    </button>
+
+    <!-- Notificação Toast -->
+    <div class="notification" id="notification" role="alert" aria-live="assertive" aria-atomic="true"></div>
+
+    <!-- JavaScript -->
+    <script src="ecoponto.js"></script>
+</body>
+
+</html>

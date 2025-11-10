@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Perfil - Validade Delivery</title>
+    <link rel="stylesheet" href="perfil.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.cdnfonts.com/css/instagram-sans" rel="stylesheet">
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="logo">
+            <img src="img/Captura de tela 2025-10-06 162710.png" alt="Logo ValidaDelivery" width="50">
+            <span class="logo-text">ValidaDelivery</span>
+        </div>
+        <nav>
+            <a href="http://127.0.0.1:5500/ValidadeDelivery/teladepedidos.html" class="active">Início</a>
+            <a href="#pontos">Pontos</a>
+            <a href="#passe">Passe</a>
+            <a href="#ecopontos">Ecopontos</a>
+        </nav>
+        <button class="perfil-btn">
+            <img src="img/Captura_de_tela_2025-10-22_165502-removebg-preview (1).png" width="50">
+            <span>Perfil</span>
+        </button>
+    </header>
+ 
+    <div class="carousel-dots"></div>
+
+    <div class="container">
+        <div class="profile-header">
+            <div class="profile-avatar">LR</div>
+            <div class="profile-info">
+                <h1>Luiz Fellipe</h1>
+                <p>luizrosaleol23@gmail.com</p>
+                <div class="profile-stats">
+                    <div class="stat-item">
+                        <div class="stat-number">47</div>
+                        <div class="stat-label">Pedidos</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">1.2k</div>
+                        <div class="stat-label">Ecopontos</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">8</div>
+                        <div class="stat-label">Favoritos</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="profile-sections">
+            <div class="section-card">
+                <h2>
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="#F39C12">
+                        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 3c1.66 0 3 1.34 3 3s-1.34 3-3 3-3-1.34-3-3 1.34-3 3-3zm0 14.2c-2.5 0-4.71-1.28-6-3.22.03-1.99 4-3.08 6-3.08 1.99 0 5.97 1.09 6 3.08-1.29 1.94-3.5 3.22-6 3.22z"/>
+                    </svg>
+                    Informações Pessoais
+                </h2>
+                <div class="info-row">
+                    <span class="info-label">Nome Completo</span>
+                    <span class="info-value">Luiz Fellipe</span>
+                </div>
+                <div class="info-row">
+                    <span class="info-label">E-mail</span>
+                    <span class="info-value">luizrosaleol23@gmail.com</span>
+                </div>
+                <div class="info-row">
+                    <span class="info-label">Telefone</span>
+                    <span class="info-value">(34) 98765-4321</span>
+                </div>
+                <div class="info-row">
+                    <span class="info-label">CPF</span>
+                    <span class="info-value">***.***.***-**</span>
+                </div>
+                <a href="http://127.0.0.1:5500/editarperfil.html">
+                    <button class="edit-btn" data-action="editar-perfil">Editar Perfil</button>
+                </a>
+            </div>
+
+            <div class="section-card">
+                <h2>
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="#52A194">
+                        <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
+                    </svg>
+                    Endereço de Entrega
+                </h2>
+                <div class="info-row">
+                    <span class="info-label">Endereço</span>
+                    <span class="info-value">Rua Namíbia, 84</span>
+                </div>
+                <div class="info-row">
+                    <span class="info-label">Bairro</span>
+                    <span class="info-value">Laranjeiras</span>
+                </div>
+                <div class="info-row">
+                    <span class="info-label">Cidade</span>
+                    <span class="info-value">Uberlandia</span>
+                </div>
+                <div class="info-row">
+                    <span class="info-label">CEP</span>
+                    <span class="info-value">38410-290</span>
+                </div>
+                <a href="http://127.0.0.1:5500/adicionarendereco.html">
+                    <button class="edit-btn" data-action="adicionar-endereco">Adicionar Endereço</button>
+                </a>
+            </div>
+
+            <div class="section-card">
+                <h2>
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="#FF6B9D">
+                        <path d="M19.14 12.94c.04-.3.06-.61.06-.94 0-.32-.02-.64-.07-.94l2.03-1.58c.18-.14.23-.41.12-.61l-1.92-3.32c-.12-.22-.37-.29-.59-.22l-2.39.96c-.5-.38-1.03-.7-1.62-.94L14.4 2.81c-.04-.24-.24-.41-.48-.41h-3.84c-.24 0-.43.17-.47.41l-.36 2.54c-.59.24-1.13.57-1.62.94l-2.39-.96c-.22-.08-.47 0-.59.22L2.74 8.87c-.12.21-.08.47.12.61l2.03 1.58c-.05.3-.09.63-.09.94s.02.64.07.94l-2.03 1.58c-.18.14-.23.41-.12.61l1.92 3.32c.12.22.37.29.59.22l2.39-.96c.5.38 1.03.7 1.62.94l.36 2.54c.05.24.24.41.48.41h3.84c.24 0 .44-.17.47-.41l.36-2.54c.59-.24 1.13-.56 1.62-.94l2.39.96c.22.08.47 0 .59-.22l1.92-3.32c.12-.22.07-.47-.12-.61l-2.01-1.58zM12 15.6c-1.98 0-3.6-1.62-3.6-3.6s1.62-3.6 3.6-3.6 3.6 1.62 3.6 3.6-1.62 3.6-3.6 3.6z"/>
+                    </svg>
+                    Preferências
+                </h2>
+                <div class="preferences-grid">
+                    <div class="preference-item">
+                        <span class="preference-label">Notificações de Pedidos</span>
+                        <div class="toggle-switch active" onclick="this.classList.toggle('active')"></div>
+                    </div>
+                    <div class="preference-item">
+                        <span class="preference-label">Promoções por E-mail</span>
+                        <div class="toggle-switch active" onclick="this.classList.toggle('active')"></div>
+                    </div>
+                    <div class="preference-item">
+                        <span class="preference-label">Dicas de Sustentabilidade</span>
+                        <div class="toggle-switch" onclick="this.classList.toggle('active')"></div>
+                    </div>
+                    <div class="preference-item">
+                        <span class="preference-label">Lembrete de Validade</span>
+                        <div class="toggle-switch active" onclick="this.classList.toggle('active')"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section-card">
+                <h2>
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="#7FB582">
+                        <path d="M19 3H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.11 0 2-.9 2-2V5c0-1.1-.89-2-2-2zm-7 3c1.65 0 3 1.35 3 3s-1.35 3-3 3-3-1.35-3-3 1.35-3 3-3zm6 12H6v-1c0-2 4-3.1 6-3.1s6 1.1 6 3.1v1z"/>
+                    </svg>
+                    Últimos Pedidos
+                </h2>
+                <div class="orders-list">
+                    <div class="order-item">
+                        <div class="order-info">
+                            <div class="order-name">Pizza de Calabresa</div>
+                            <div class="order-date">10/12/2025</div>
+                        </div>
+                        <div class="order-price">R$ 20,00</div>
+                    </div>
+                    <div class="order-item">
+                        <div class="order-info">
+                            <div class="order-name">Hambúrguer Artesanal</div>
+                            <div class="order-date">08/12/2025</div>
+                        </div>
+                        <div class="order-price">R$ 10,00</div>
+                    </div>
+                    <div class="order-item">
+                        <div class="order-info">
+                            <div class="order-name">Pão de Queijo Especial</div>
+                            <div class="order-date">15/12/2025</div>
+                        </div>
+                        <div class="order-price">R$ 12,00</div>
+                    </div>
+                </div>
+                <a href="http://127.0.0.1:5500/vertodosospedidos.html">
+                    <button class="edit-btn" data-action="ver-pedidos">Ver Todos os Pedidos</button>
+                </a>
+            </div>
+        </div>
+    </div> 
+    <script src="perfil.js"></script>
+</body>
+</html>

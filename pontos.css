@@ -1,0 +1,1046 @@
+/* ==================== Fonte Instagram Sans ==================== */
+@import url('https://fonts.cdnfonts.com/css/instagram-sans');
+
+/* ==================== Reset e Variáveis ==================== */
+:root {
+  /* Cores Primárias */
+  --primary: #f28c00;
+  --primary-light: #ff9f24;
+  --primary-dark: #d97b00;
+  --primary-2: #ffb74d;
+  --secondary: #6ea56f;
+  --secondary-dark: #5a8f5b;
+  --secondary-light: #8bc48c;
+  --green-1: #56ab2f;
+  --green-2: #a8e063;
+  
+  /* Cores de Destaque */
+  --accent: #f95d8b;
+  --accent-light: #ff7ba5;
+  --accent-dark: #e04872;
+  --highlight: #64b6d0;
+  --highlight-dark: #4a9db5;
+  --gold: #ffd700;
+  
+  /* Cores de Fundo */
+  --background: #e8f0fa;
+  --background-alt: #d4e6f7;
+  --white: #ffffff;
+  --black: #000000;
+  --card: #ffffff;
+  
+  /* Cores de Texto */
+  --text-dark: #333333;
+  --text-medium: #666666;
+  --text-light: #999999;
+  --muted: #6b7280;
+  
+  /* Sombras */
+  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.1);
+  --shadow-md: 0 4px 15px rgba(0, 0, 0, 0.15);
+  --shadow-lg: 0 8px 30px rgba(0, 0, 0, 0.2);
+  --shadow-xl: 0 15px 40px rgba(0, 0, 0, 0.3);
+  --shadow: 0 6px 20px rgba(15,23,42,0.08);
+  
+  /* Border Radius */
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 20px;
+  --radius-xl: 35px;
+  --radius: 14px;
+  
+  /* Transições */
+  --transition-fast: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-slow: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  --ease: cubic-bezier(.2,.9,.3,1);
+  
+  /* Z-index */
+  --z-header: 100;
+  --z-sidebar: 50;
+  --z-carrinho: 1000;
+  --z-modal: 2000;
+  --z-notification: 3000;
+}
+
+/* ==================== Reset Global ==================== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  height: 100%;
+  width: 100%;
+  overflow-x: hidden;
+}
+
+body {
+  font-family: 'Instagram Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  background: linear-gradient(135deg, var(--background) 0%, var(--background-alt) 100%);
+  min-height: 100vh;
+  color: var(--text-dark);
+  line-height: 1.6;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  padding: 0;
+  margin: 0;
+  position: relative;
+}
+
+/* Aplicar Instagram Sans em todos os elementos */
+*, *::before, *::after {
+  font-family: 'Instagram Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+/* Garantir que inputs, buttons e selects também usem a fonte */
+input, button, select, textarea {
+  font-family: 'Instagram Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+/* Onda laranja superior */
+body::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 150px;
+  background: #ff9800;
+  clip-path: ellipse(100% 100% at 50% 0%);
+  z-index: 0;
+}
+
+/* ==================== Formas Geométricas ==================== */
+/* Círculo rosa grande */
+.geo-shape:nth-child(1) {
+  position: fixed;
+  width: 180px;
+  height: 180px;
+  background: #ffc0d3;
+  border-radius: 50%;
+  top: 100px;
+  left: 120px;
+  opacity: 0.6;
+  z-index: 0;
+}
+
+.geo-shape:nth-child(1)::before {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-image: repeating-linear-gradient(
+    45deg,
+    transparent,
+    transparent 3px,
+    rgba(255, 255, 255, 0.3) 3px,
+    rgba(255, 255, 255, 0.3) 6px
+  );
+  border-radius: 50%;
+}
+
+/* Anel rosa pequeno */
+.geo-shape:nth-child(2) {
+  position: fixed;
+  width: 50px;
+  height: 50px;
+  border: 3px solid #ffc0d3;
+  border-radius: 50%;
+  background: transparent;
+  top: 120px;
+  right: 220px;
+  opacity: 0.5;
+  z-index: 0;
+}
+
+/* Quadrado rosa grande - Alinhado */
+.geo-shape:nth-child(3) {
+  position: fixed;
+  width: 140px;
+  height: 140px;
+  background: #ffc0d3;
+  opacity: 0.4;
+  top: 100px;
+  right: 100px;
+  z-index: 0;
+  border-radius: 8px;
+}
+
+/* Quadrado verde menta com borda - Alinhado */
+.geo-shape:nth-child(4) {
+  position: fixed;
+  width: 120px;
+  height: 120px;
+  background: #c8e6d5;
+  border: 3px solid #d5f0e1;
+  opacity: 0.5;
+  top: 380px;
+  left: 100px;
+  z-index: 0;
+  border-radius: 8px;
+}
+
+/* Triângulo amarelo pequeno - Alinhado */
+.geo-shape:nth-child(5) {
+  position: fixed;
+  width: 0;
+  height: 0;
+  border-left: 20px solid transparent;
+  border-right: 20px solid transparent;
+  border-bottom: 35px solid #ffd54f;
+  opacity: 0.6;
+  top: 200px;
+  left: 220px;
+  z-index: 0;
+}
+
+/* Triângulo amarelo com pontos - Alinhado */
+.geo-shape:nth-child(6) {
+  position: fixed;
+  width: 0;
+  height: 0;
+  border-left: 25px solid transparent;
+  border-right: 25px solid transparent;
+  border-bottom: 40px solid #ffd54f;
+  opacity: 0.4;
+  bottom: 180px;
+  left: 60px;
+  z-index: 0;
+}
+
+.geo-shape:nth-child(6)::after {
+  content: '';
+  position: absolute;
+  width: 50px;
+  height: 40px;
+  background-image: radial-gradient(circle, #aaa 1px, transparent 1px);
+  background-size: 5px 5px;
+  bottom: -40px;
+  left: -25px;
+}
+
+/* Círculo verde menta com linhas - Centralizado */
+.geo-shape:nth-child(7) {
+  position: fixed;
+  width: 160px;
+  height: 160px;
+  background: #c8e6d5;
+  border-radius: 50%;
+  opacity: 0.5;
+  bottom: 220px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 0;
+  overflow: hidden;
+}
+
+.geo-shape:nth-child(7)::before {
+  content: '';
+  position: absolute;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  width: 50%;
+  background-image: repeating-linear-gradient(
+    0deg,
+    transparent,
+    transparent 4px,
+    rgba(0, 0, 0, 0.08) 4px,
+    rgba(0, 0, 0, 0.08) 8px
+  );
+}
+
+/* Círculo com pontos - Alinhado */
+.geo-shape:nth-child(8) {
+  position: fixed;
+  width: 100px;
+  height: 100px;
+  background: transparent;
+  border-radius: 50%;
+  bottom: 280px;
+  right: 160px;
+  opacity: 0.4;
+  z-index: 0;
+  background-image: radial-gradient(circle, #999 1.5px, transparent 1.5px);
+  background-size: 8px 8px;
+}
+
+/* Anel cinza - Alinhado */
+.geo-shape:nth-child(9) {
+  position: fixed;
+  width: 40px;
+  height: 40px;
+  border: 3px solid #b0b0b0;
+  border-radius: 50%;
+  background: transparent;
+  bottom: 400px;
+  left: 140px;
+  opacity: 0.4;
+  z-index: 0;
+}
+
+/* Anel laranja - Alinhado */
+.geo-shape:nth-child(10) {
+  position: fixed;
+  width: 45px;
+  height: 45px;
+  border: 3px solid #ffb74d;
+  border-radius: 50%;
+  background: transparent;
+  bottom: 140px;
+  right: 120px;
+  opacity: 0.5;
+  z-index: 0;
+}
+
+/* Linha ondulada 1 - Alinhada */
+.geo-shape:nth-child(11) {
+  position: fixed;
+  width: 120px;
+  height: 30px;
+  top: 320px;
+  left: 160px;
+  opacity: 0.3;
+  z-index: 0;
+  background-image: repeating-linear-gradient(
+    90deg,
+    transparent,
+    transparent 8px,
+    #b0b0b0 8px,
+    #b0b0b0 10px
+  );
+  clip-path: path('M0,15 Q15,5 30,15 T60,15 T90,15 T120,15');
+  border-bottom: 2px solid #b0b0b0;
+}
+
+/* Linha ondulada 2 - Alinhada */
+.geo-shape:nth-child(12) {
+  position: fixed;
+  width: 100px;
+  height: 25px;
+  bottom: 320px;
+  left: 200px;
+  opacity: 0.3;
+  z-index: 0;
+  border-bottom: 2px solid #b0b0b0;
+}
+
+/* Linha zigzag - Alinhada */
+.geo-shape:nth-child(13) {
+  position: fixed;
+  width: 80px;
+  height: 60px;
+  top: 260px;
+  left: 60px;
+  opacity: 0.25;
+  z-index: 0;
+  background-image: linear-gradient(
+      135deg,
+      transparent 48%,
+      #b0b0b0 48%,
+      #b0b0b0 52%,
+      transparent 52%
+    ),
+    linear-gradient(45deg, transparent 48%, #b0b0b0 48%, #b0b0b0 52%, transparent 52%);
+  background-size: 20px 20px;
+  background-position: 0 0, 10px 10px;
+}
+
+/* Linha zigzag 2 - Alinhada */
+.geo-shape:nth-child(14) {
+  position: fixed;
+  width: 70px;
+  height: 50px;
+  bottom: 200px;
+  right: 260px;
+  opacity: 0.25;
+  z-index: 0;
+  background-image: linear-gradient(
+      135deg,
+      transparent 48%,
+      #b0b0b0 48%,
+      #b0b0b0 52%,
+      transparent 52%
+    ),
+    linear-gradient(45deg, transparent 48%, #b0b0b0 48%, #b0b0b0 52%, transparent 52%);
+  background-size: 15px 15px;
+  background-position: 0 0, 7.5px 7.5px;
+}
+
+/* Triângulo com linhas horizontais - Alinhado */
+.geo-shape:nth-child(15) {
+  position: fixed;
+  width: 0;
+  height: 0;
+  border-left: 35px solid transparent;
+  border-right: 35px solid transparent;
+  border-bottom: 60px solid #ffcc80;
+  opacity: 0.5;
+  bottom: 260px;
+  right: 340px;
+  z-index: 0;
+}
+
+/* Pontos decorativos pequenos - Alinhados */
+.geo-shape:nth-child(16) {
+  position: fixed;
+  width: 60px;
+  height: 60px;
+  bottom: 120px;
+  left: 300px;
+  opacity: 0.3;
+  z-index: 0;
+  background-image: radial-gradient(circle, #999 1px, transparent 1px);
+  background-size: 6px 6px;
+}
+
+/* ==================== Header ==================== */
+header {
+  background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+  padding: 18px 50px;
+  border-bottom-left-radius: 50px;
+  border-bottom-right-radius: 50px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 6px 20px rgba(242, 140, 0, 0.35);
+  position: sticky;
+  top: 0;
+  z-index: var(--z-header);
+  backdrop-filter: blur(10px);
+  transition: var(--transition);
+}
+
+/* Logo */
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--text-dark);
+  cursor: pointer;
+  transition: var(--transition);
+  user-select: none;
+}
+
+.logo:hover {
+  transform: scale(1.05);
+}
+
+.logo-icon {
+  width: 45px;
+  height: 45px;
+  object-fit: contain;
+  transition: var(--transition);
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.2));
+}
+
+.logo:hover .logo-icon {
+  transform: scale(1.1) rotate(5deg);
+}
+
+.logo-text {
+  font-weight: 800;
+  letter-spacing: -0.5px;
+  color: var(--text-dark);
+}
+
+/* Navegação */
+header nav {
+  display: flex;
+  gap: 30px;
+  align-items: center;
+}
+
+.nav-link {
+  text-decoration: none;
+  color: var(--text-dark);
+  font-size: 1.05rem;
+  font-weight: 500;
+  padding: 8px 16px;
+  border-radius: var(--radius-md);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  position: relative;
+  transition: var(--transition);
+}
+
+.nav-link::before {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 3px;
+  background: var(--text-dark);
+  transition: var(--transition);
+  border-radius: 3px;
+}
+
+.nav-link:hover::before,
+.nav-link.active::before {
+  width: 80%;
+}
+
+.nav-link:hover,
+.nav-link.active {
+  background: rgba(255, 255, 255, 0.2);
+  transform: translateY(-2px);
+}
+
+.nav-link:active {
+  transform: translateY(0);
+}
+
+.nav-icon {
+  font-size: 1.2rem;
+}
+
+/* Perfil */
+.perfil {
+  background: linear-gradient(135deg, var(--secondary) 0%, var(--secondary-dark) 100%);
+  padding: 10px 24px;
+  border-radius: 25px;
+  color: var(--white);
+  font-weight: 600;
+  cursor: pointer;
+  transition: var(--transition);
+  box-shadow: 0 4px 12px rgba(110, 165, 111, 0.4);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  user-select: none;
+  text-decoration: none;
+}
+
+.perfil:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(110, 165, 111, 0.6);
+}
+
+.perfil:active {
+  transform: translateY(-1px);
+}
+
+.perfil-icon {
+  font-size: 1.2rem;
+}
+
+/* ==================== Layout container ==================== */
+.wrap {
+  max-width: 100%;
+  min-height: 100vh;
+  margin: 0;
+  background: transparent;
+  border-radius: 0;
+  box-shadow: none;
+  overflow: auto;
+  position: relative;
+  z-index: 1;
+}
+
+/* ==================== Main content ==================== */
+.content {
+  padding: 16px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Points card */
+.points-card {
+  background: linear-gradient(135deg, var(--green-1), var(--green-2));
+  color: white;
+  border-radius: 10px;
+  padding: 14px;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 8px 24px rgba(16, 185, 129, 0.08);
+}
+
+.points-card::before {
+  content: '🌍';
+  position: absolute;
+  right: -20px;
+  top: -20px;
+  font-size: 90px;
+  opacity: 0.08;
+}
+
+.points-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.points-title {
+  font-weight: 800;
+  font-size: 14px;
+}
+
+.points-sub {
+  font-size: 11px;
+  opacity: 0.95;
+}
+
+.mascot {
+  font-size: 36px;
+  margin: 10px 0 5px;
+  animation: bounce 2000ms var(--ease) infinite;
+}
+
+@keyframes bounce {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+.points-value {
+  font-size: 32px;
+  font-weight: 900;
+  color: #fff;
+  text-shadow: 0 3px 8px rgba(0, 0, 0, 0.15);
+}
+
+.points-label {
+  font-size: 11px;
+  opacity: 0.95;
+  margin-top: 6px;
+}
+
+.points-value-money {
+  font-size: 12px;
+  opacity: 0.95;
+  margin-top: 3px;
+}
+
+.impact-grid {
+  display: flex;
+  gap: 10px;
+  margin-top: 12px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.impact {
+  background: rgba(255, 255, 255, 0.12);
+  padding: 8px 10px;
+  border-radius: 8px;
+  text-align: center;
+  min-width: 100px;
+}
+
+.impact .num {
+  font-weight: 800;
+  font-size: 16px;
+}
+
+.impact .lbl {
+  font-size: 11px;
+  opacity: 0.95;
+}
+
+.earn-btn {
+  display: inline-block;
+  margin-top: 12px;
+  background: linear-gradient(90deg, var(--primary), var(--primary-2));
+  color: white;
+  padding: 8px 14px;
+  border-radius: 8px;
+  border: none;
+  font-weight: 800;
+  font-size: 13px;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(242, 140, 0, 0.18);
+  transition: transform 200ms ease;
+}
+
+.earn-btn:hover {
+  transform: scale(1.02);
+}
+
+/* white sections */
+.section {
+  background: linear-gradient(135deg, rgba(74, 144, 226, 0.95), rgba(107, 163, 232, 0.95));
+  padding: 12px;
+  border-radius: 10px;
+  box-shadow: 0 4px 14px rgba(14, 18, 34, 0.15);
+  backdrop-filter: blur(10px);
+}
+
+.section h2 {
+  font-size: 14px;
+  color: #fff;
+  margin-bottom: 10px;
+  font-weight: 800;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* mission */
+.mission {
+  background: linear-gradient(135deg, rgba(255, 107, 157, 0.9), rgba(255, 170, 201, 0.9));
+  color: white;
+  padding: 12px;
+  border-radius: 10px;
+  backdrop-filter: blur(10px);
+}
+
+.mission .title {
+  font-weight: 800;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.mission .desc {
+  font-size: 13px;
+  opacity: 0.95;
+  margin-top: 6px;
+}
+
+.mission .prize {
+  display: inline-block;
+  margin-top: 8px;
+  background: rgba(255, 255, 255, 0.2);
+  padding: 6px 12px;
+  border-radius: 999px;
+  font-weight: 800;
+}
+
+/* checkin grid */
+.checkin-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 8px;
+}
+
+.day {
+  background: #f2f4f7;
+  border-radius: 10px;
+  padding: 10px;
+  text-align: center;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 160ms var(--ease);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+}
+
+.day.done {
+  background: linear-gradient(90deg, var(--green-1), var(--green-2));
+  color: white;
+}
+
+.day.current {
+  background: linear-gradient(90deg, var(--primary), var(--primary-2));
+  color: white;
+  transform: scale(1.03);
+  box-shadow: 0 6px 18px rgba(242, 140, 0, 0.12);
+}
+
+.day.future {
+  background: #fafafa;
+  color: var(--muted);
+  cursor: not-allowed;
+}
+
+.day.current:hover {
+  transform: scale(1.06);
+}
+
+.streak {
+  margin-top: 12px;
+  background: linear-gradient(90deg, #11998e, #38ef7d);
+  color: white;
+  padding: 10px;
+  border-radius: 10px;
+  text-align: center;
+}
+
+.streak-desc {
+  font-size: 13px;
+  opacity: 0.9;
+  margin-top: 4px;
+}
+
+/* rewards grid */
+.rewards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 10px;
+}
+
+.reward {
+  background: linear-gradient(135deg, rgba(255, 107, 157, 0.85), rgba(255, 170, 201, 0.85));
+  border-radius: 10px;
+  padding: 12px;
+  text-align: center;
+  box-shadow: 0 6px 18px rgba(2, 6, 23, 0.1);
+  backdrop-filter: blur(10px);
+}
+
+.reward .emoji {
+  font-size: 32px;
+}
+
+.reward .name {
+  font-weight: 800;
+  margin-top: 8px;
+  color: white;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.reward .cost {
+  color: rgba(255, 255, 255, 0.9);
+  margin-top: 6px;
+  font-size: 13px;
+}
+
+.reward .redeem {
+  margin-top: 8px;
+  padding: 8px 10px;
+  border-radius: 8px;
+  border: none;
+  background: linear-gradient(90deg, var(--primary), var(--primary-2));
+  color: white;
+  cursor: pointer;
+  font-weight: 800;
+  transition: transform 200ms ease;
+}
+
+.reward .redeem:hover {
+  transform: scale(1.05);
+}
+
+/* history list */
+.history-item {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  padding: 10px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.history-item:last-child {
+  border-bottom: none;
+}
+
+.hist-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  flex-shrink: 0;
+}
+
+.hist-eco {
+  background: linear-gradient(90deg, #56ab2f, #a8e063);
+  color: white;
+}
+
+.hist-rec {
+  background: linear-gradient(90deg, #11998e, #38ef7d);
+  color: white;
+}
+
+.hist-redeem {
+  background: linear-gradient(90deg, #ff8c00, #fda085);
+  color: white;
+}
+
+.hist-info {
+  flex: 1;
+}
+
+.hist-title {
+  font-weight: 800;
+  font-size: 14px;
+  color: white;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.hist-desc {
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.8);
+  margin-top: 2px;
+}
+
+.hist-time {
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.7);
+  margin-top: 4px;
+}
+
+.hist-value {
+  font-weight: 900;
+  font-size: 16px;
+}
+
+.plus {
+  color: #a8e063;
+}
+
+.minus {
+  color: #fda085;
+}
+
+/* ==================== Modals & Toast ==================== */
+.modal-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(7, 12, 20, 0.45);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 1200;
+}
+
+.modal {
+  background: var(--card);
+  border-radius: 12px;
+  padding: 18px;
+  width: min(520px, 92%);
+  box-shadow: 0 20px 50px rgba(2, 6, 23, 0.2);
+}
+
+.modal h3 {
+  margin-bottom: 10px;
+  font-size: 18px;
+}
+
+.modal .row {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-top: 12px;
+}
+
+.modal .opt {
+  padding: 10px 12px;
+  border-radius: 10px;
+  border: 1px solid #eef2f6;
+  cursor: pointer;
+  background: #fbfbfc;
+  transition: all 200ms ease;
+}
+
+.modal .opt:hover {
+  background: #f0f2f5;
+  transform: translateY(-2px);
+}
+
+.modal .close {
+  margin-top: 12px;
+  padding: 10px 12px;
+  border-radius: 8px;
+  border: none;
+  background: #eee;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.toast {
+  position: fixed;
+  right: 18px;
+  bottom: 18px;
+  background: #0f1724;
+  color: white;
+  padding: 10px 14px;
+  border-radius: 10px;
+  box-shadow: 0 8px 30px rgba(2, 6, 23, 0.3);
+  transform: translateY(12px);
+  opacity: 0;
+  pointer-events: none;
+  transition: all 260ms var(--ease);
+  z-index: 1300;
+}
+
+.toast.show {
+  transform: translateY(0);
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* ==================== Responsive ==================== */
+@media (max-width: 720px) {
+  body {
+    padding: 0;
+  }
+
+  header {
+    flex-wrap: wrap;
+    padding: 12px 16px;
+    border-radius: 0;
+  }
+
+  header nav {
+    order: 3;
+    width: 100%;
+    justify-content: center;
+    margin-top: 8px;
+    gap: 15px;
+  }
+
+  .nav-link {
+    font-size: 0.95rem;
+    padding: 6px 12px;
+  }
+
+  .logo {
+    font-size: 1.2rem;
+  }
+
+  .logo-icon {
+    width: 35px;
+    height: 35px;
+  }
+
+  .wrap {
+    margin: 0;
+  }
+
+  .content {
+    padding: 20px 16px;
+  }
+
+  .points-value {
+    font-size: 34px;
+  }
+
+  .mascot {
+    font-size: 36px;
+  }
+
+  .checkin-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  .impact-grid {
+    flex-direction: column;
+  }
+
+  .impact {
+    min-width: auto;
+    width: 100%;
+  }
+}
